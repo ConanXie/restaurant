@@ -1,0 +1,68 @@
+管理员表
+create table admin(
+id int auto_increment primary key not null,
+username varcahr(10) not null,
+password varcahr(10) not null,
+);
+用户名表
+create table user(
+id int auto_increment primary key not null,
+username varchar(10) not null,
+password varchar(20) not null,
+email varchar(30) not null,
+registerdate datetime not null
+);
+菜的分类表
+create table dishcate(
+id int auto_increment primary key not null,
+cate varchar(20) not null
+);
+菜表
+create table dish(
+id int auto_increment primary key not null,
+dcate int not null,
+name varchar(50) not null,
+price double not null,
+specialprice double,
+image varchar(50) not null,
+sketch varchar(50) not null,
+details text not null,
+createtime datetime not null
+);
+评价表
+create table evaluate(
+id int auto_increment primary key not null,
+did int not null,
+userid int not null,
+star tinyint not null,
+content varchar(200),
+createtime datetime not null
+);
+订单表
+create table orders(
+id int auto_increment primary key not null,
+userid int not null,
+createtime datetime not null,
+evaluated tinyint not null
+);
+订单详情表
+create table orderdetail(
+id int auto_increment primary key not null,
+orderid int not null,
+did int not null,
+num tinyint
+);
+联系电话与地址表
+create table contactway(
+id int auto_increment primary key not null,
+userid int not null,
+phone varchar(11) not null,
+address varchar(50) not null
+);
+购物车表
+create table shoppingcart(
+id int auto_increment primary key not null,
+userid int not null,
+did int not null,
+createtime datetime not null
+);
