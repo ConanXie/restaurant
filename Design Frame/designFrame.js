@@ -33,7 +33,7 @@ window.onload = function () {
         }
     });
     islider.renderDot({
-            top: '230px',
+            top: '220px',
             width: '90%',
             diameter: '0.8em',
             borderColor: '#fff',
