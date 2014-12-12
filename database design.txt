@@ -1,10 +1,10 @@
 管理员表
 create table admin(
-id int auto_increment primary key not null,
-username varcahr(10) not null,
-password varcahr(10) not null,
+id tinyint auto_increment primary key not null,
+username varchar(10) not null,
+password varchar(10) not null
 );
-用户名表
+用户表
 create table user(
 id int auto_increment primary key not null,
 username varchar(10) not null,
@@ -14,16 +14,18 @@ registerdate datetime not null
 );
 菜的分类表
 create table dishcate(
-id int auto_increment primary key not null,
+id tinyint auto_increment primary key not null,
 cate varchar(20) not null
 );
 菜表
 create table dish(
-id int auto_increment primary key not null,
-dcate int not null,
+id mediumint auto_increment primary key not null,
+dishcate tinyint not null,
 name varchar(50) not null,
 price double not null,
+spec tinyint not null,
 specialprice double,
+reco tinyint not null,
 image varchar(50) not null,
 sketch varchar(50) not null,
 details text not null,
@@ -32,7 +34,7 @@ createtime datetime not null
 评价表
 create table evaluate(
 id int auto_increment primary key not null,
-did int not null,
+dishid mediumint not null,
 userid int not null,
 star tinyint not null,
 content varchar(200),
@@ -49,7 +51,7 @@ evaluated tinyint not null
 create table orderdetail(
 id int auto_increment primary key not null,
 orderid int not null,
-did int not null,
+dishid mediumint not null,
 num tinyint
 );
 联系电话与地址表
@@ -63,6 +65,6 @@ address varchar(50) not null
 create table shoppingcart(
 id int auto_increment primary key not null,
 userid int not null,
-did int not null,
+dishid mediumint not null,
 createtime datetime not null
 );
