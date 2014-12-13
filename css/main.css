@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "微软雅黑 Light", 微软雅黑, 黑体;
+    font-size: normal;
+    position: relative;
+    background: #eeeeee;
+}
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background: #e51c23;
+    box-shadow: 0 0 10px rgba(30, 30, 30, 0.6);
+    z-index: 98;
+    text-align: center;
+}
+header a {
+    display: inline-block;
+    line-height: 50px;
+    font-size: 1.5em;
+    color: #fff;
+    text-decoration: none;
+}
+header div {
+    height: 100%;
+    line-height: 50px;
+    color: #fff;
+}
+#menu-button {
+    width: 50px;
+    float: left;
+    margin-left: 2%;
+    background: url(../img/icon/menu.png) no-repeat center;
+    background-size: 60%;
+}
+#user {
+    float: right;
+    margin-right: 2%;
+}
+#shade {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    z-index: 99;
+}
+aside {
+    position: fixed;
+    top: 0;
+    width: 70%;
+    max-width: 400px;
+    height: 100%;
+    background: #fff;
+    box-shadow: 0 0 30px rgba(100, 100, 100, 0.6);
+    z-index: 100;
+    -webkit-transform: translateX(-110%);
+    -webkit-transition: all 0.5s;
+}
+aside h3 {
+    height: 150px;
+    padding-left: 8.33%;
+    line-height: 200px;
+    color: #fff;
+    background: #03a9f4;
+}
+aside ul {
+    margin-left: 8.33%;
+}
+aside ul li {
+    list-style: none;
+    margin: 20px 0;
+} 
+.icon {
+    display: inline-block;
+    float: left;
+    width: 30px;
+    height: 30px;
+    background: url(../img/icon/icon.png) no-repeat center center;
+    background-size: 100%;
+}
+.cate {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    font-size: 1.2em;
+}
+aside ul li a {
+    color: #000;
+}
+aside ul li:after {
+    content: '';
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+#occupy {
+    height: 50px;
+}
+section {
+    background: #fff;
+}
+#recommend {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+.list {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.list img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+.list p {
+    position: absolute;
+    padding: 0 0.5em;
+    margin-left: 5%;
+    font-size: 1.5em;
+    color: #fff;
+    background-color: rgba(221, 25, 29, 1);
+    border-radius: 2px;
+}
+.reco-name {
+    bottom: 100px;
+}
+.reco-price {
+    bottom: 50px;
+}
+.yuan {
+    font-size: 0.6em;
+}
+#special {
+    margin-top: 20px;
+}
+.sp-head {
+    padding: 0 3%;
+}
+.sp-head h2, .so-more {
+    display: inline-block;
+}
+.sp-head h2 {
+    font-size: 1.2em;
+    line-height: 2em;
+    font-weight: normal;
+    float: left;
+}
+.so-more {
+    line-height: 2.4em;
+    text-decoration: none;
+    color: #000;
+    float: right;
+}
+.sp-head:after {
+    content: '';
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+#so-box {
+    display: -webkit-box;
+}
+.so-dish {
+    -webkit-box-flex: 2;
+    text-align: center;
+}
+.so-dish:nth-child(odd) {
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+.so-dish:nth-child(2) {
+    border: 1px solid #e0e0e0;
+}
+.so-dish img {
+    width: 80%;
+}
+.so-dish a {
+    color: #000;
+    text-decoration: none;
+}
+.so-dish img, .so-dish p {
+    padding-top: 1em;
+}
+.so-dish p:last-child {
+    padding-bottom: 1em;
+}
+.so-price {
+    font-size: 1.2em;
+    color: #f00;
+}
+.ori-price {
+    color: #c0c0c0;
+    font-size: 0.8em;
+    text-decoration: line-through;
+}
+#all-dish {
+    margin-top: 10px;
+}
+#all-dish h2 {
+    font-size: 1.1em;
+    font-weight: normal;
+    padding-left: 3%;
+    line-height: 2em;
+}
+#all-dish a {
+    text-decoration: none;
+    color: #000;
+}
+dl {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    display: -webkit-box;
+}
+dt {
+    -webkit-box-flex: 1.1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+dd {
+    -webkit-box-flex: 1.9;
+    padding-left: 1em;
+}
+dd h3 {
+    font-size: 1.1em;
+}
+.all-skecth {
+    color: #888;
+    padding: 0.5em 0;
+}
+.all-price {
+    font-size: 1.2em;
+    color: #f00;
+}

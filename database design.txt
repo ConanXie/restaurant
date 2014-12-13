@@ -31,6 +31,8 @@ sketch varchar(50) not null,
 details text not null,
 createtime datetime not null
 );
+insert into dish (dishcate,name,price,spec,reco,image,sketch,details,createtime) values 
+insert into dish (dishcate,name,price,spec,specialprice,reco,image,sketch,details,createtime) values
 评价表
 create table evaluate(
 id int auto_increment primary key not null,
