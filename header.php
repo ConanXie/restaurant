@@ -27,7 +27,7 @@
             <?php
                 $cate_sql = "SELECT * FROM dishcate;";
                 $cate_result = mysql_query($cate_sql);
-                while ($cate_row = mysql_fetch_assoc($cate_result)) {
+                while ($cate_row = mysql_fetch_array($cate_result)) {
                     echo '<li><a href=""><span class="icon">&#xe88f;</span><p class="cate">'.$cate_row["cate"].'</p></a></li>';
                 }
             ?>

@@ -41,8 +41,6 @@ header div {
     width: 50px;
     float: left;
     margin-left: 2%;
-    /*background: url(../img/icon/menu.png) no-repeat center;*/
-    /*background-size: 60%;*/
 }
 #user {
     width: 50px;
@@ -153,22 +151,22 @@ section {
     font-size: 0.6em;
 }
 #special {
-    margin-top: 20px;
+    margin-top: 1em;
 }
 .sp-head {
     padding: 0 3%;
 }
 .sp-head h2, .so-more {
+    line-height: 3em;
     display: inline-block;
 }
 .sp-head h2 {
     font-size: 1.2em;
-    line-height: 2em;
     font-weight: normal;
     float: left;
 }
 .so-more {
-    line-height: 2.4em;
+    line-height: 3.6em;
     text-decoration: none;
     color: #000;
     float: right;
@@ -216,16 +214,50 @@ section {
     font-size: 0.8em;
     text-decoration: line-through;
 }
-#all-dish {
-    margin-top: 10px;
+#dish-box {
+    position: relative;
 }
-#all-dish h2 {
-    font-size: 1.1em;
-    font-weight: normal;
+#sort-nav {
+    margin-top: 1em;
+    border-bottom: 1px solid #e0e0e0;
+}
+#sort-nav h2 {
+    font-size: 1.2em;
     padding-left: 3%;
-    line-height: 2em;
+    line-height: 3em;
 }
-#all-dish a {
+#sort-nav h4 {
+    color: #f00;
+    padding-left: 1em;
+}
+#sort-nav h2, #sort-nav h4 {
+    display: inline-block;
+    font-weight: normal;
+}
+#rule-list {
+    position: absolute;
+    top: 0;
+    left: 6em;
+    padding: 0 1em;
+    background: #fff;
+    box-shadow: 0 0 30px rgba(100, 100, 100, 0.6);
+    z-index: 1;
+    display: none;
+}
+#now-sort span {
+    font-family: "icon";
+    font-size: 0.9em;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+}
+.sort-rule {
+    list-style-type: none;
+    margin: 1em 0;
+}
+.now-rule {
+    color: #f00;
+}
+.page a {
     text-decoration: none;
     color: #000;
 }
