@@ -1,3 +1,7 @@
+@font-face {
+    font-family: "icon";
+    src: url(../font/icon.woff) format('woff');
+}
 * {
     margin: 0;
     padding: 0;
@@ -29,15 +33,19 @@ header div {
     height: 100%;
     line-height: 50px;
     color: #fff;
+    font-family: "icon";
+    font-size: 2em;
+    -webkit-font-smoothing: antialiased;
 }
 #menu-button {
     width: 50px;
     float: left;
     margin-left: 2%;
-    background: url(../img/icon/menu.png) no-repeat center;
-    background-size: 60%;
+    /*background: url(../img/icon/menu.png) no-repeat center;*/
+    /*background-size: 60%;*/
 }
 #user {
+    width: 50px;
     float: right;
     margin-right: 2%;
 }
@@ -82,8 +90,11 @@ aside ul li {
     float: left;
     width: 30px;
     height: 30px;
-    background: url(../img/icon/icon.png) no-repeat center center;
-    background-size: 100%;
+    font-family: "icon";
+    font-size: 1.5em;
+    line-height: 30px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
 }
 .cate {
     float: left;
@@ -243,4 +254,21 @@ dd h3 {
 .all-price {
     font-size: 1.2em;
     color: #f00;
+}
+.load-more {
+    height: 3em;
+    line-height: 3em;
+    text-align: center;
+}
+.load-more span {
+    font: normal 1.5em "icon";
+    -webkit-animation: loadmore 1s linear infinite;
+}
+@-webkit-keyframes loadmore {
+    0 {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(-360deg);
+    }
 }

@@ -17,8 +17,8 @@
 <body>
     <header>
         <a href="index.php">Conan</a>
-        <div id="menu-button"></div>
-        <div id="user">user</div>
+        <div id="menu-button">&#xe807;</div>
+        <div id="user">&#xe8e6;</div>
     </header>
     <div id="shade"></div>
     <aside>
@@ -28,7 +28,7 @@
                 $cate_sql = "SELECT * FROM dishcate;";
                 $cate_result = mysql_query($cate_sql);
                 while ($cate_row = mysql_fetch_assoc($cate_result)) {
-                    echo '<li><a href=""><span class="icon"></span><p class="cate">'.$cate_row["cate"].'</p></a></li>';
+                    echo '<li><a href=""><span class="icon">&#xe88f;</span><p class="cate">'.$cate_row["cate"].'</p></a></li>';
                 }
             ?>
         </ul>
