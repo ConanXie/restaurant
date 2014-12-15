@@ -18,7 +18,13 @@
     <header>
         <a href="index.php">Conan</a>
         <div id="menu-button">&#xe807;</div>
-        <div id="user">&#xe8e6;</div>
+        <?php
+            if (isset($_SESSION['USERNAME'])) {
+                echo '<a id="user" href="myhome.php">&#xe8e5;</a>';
+            } else {
+                echo '<a id="user" href="joinin.php">&#xe8e6;</a>';
+            }
+        ?>
     </header>
     <div id="shade"></div>
     <aside>

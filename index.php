@@ -67,3 +67,6 @@
     </div>
 </section>
 <div class="load-more" id="load-more"><span>&#xe6c6;</span>加载中</div>
+<?php
+    require('footer.php');
+?>

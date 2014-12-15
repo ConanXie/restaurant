@@ -29,7 +29,7 @@ header a {
     color: #fff;
     text-decoration: none;
 }
-header div {
+header div, #user {
     height: 100%;
     line-height: 50px;
     color: #fff;
@@ -43,9 +43,11 @@ header div {
     margin-left: 2%;
 }
 #user {
+    display: block;
     width: 50px;
     float: right;
     margin-right: 2%;
+    color: #fff;
 }
 #shade {
     position: fixed;

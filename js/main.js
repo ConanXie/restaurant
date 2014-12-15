@@ -29,12 +29,16 @@ window.onload = function () {
     Dish.prototype = {
         init: function () {
             var that = this;
-            this.nowSort.addEventListener('click', function (e) {
-                that.ruleList.style.display = 'block';
-                e.stopPropagation();
-            }, false);
+            if (this.nowSort) {
+                this.nowSort.addEventListener('click', function (e) {
+                    that.ruleList.style.display = 'block';
+                    e.stopPropagation();
+                }, false);
+            }
             document.body.addEventListener('click', function (e) {
-                that.ruleList.style.display = 'none';
+                if (that.ruleList) {
+                    that.ruleList.style.display = 'none';
+                }
                 e.stopPropagation();
             }, false);
             this.ruleEvent();
