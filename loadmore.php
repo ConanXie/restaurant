@@ -19,22 +19,28 @@
     $rule = $_GET['rule'];
     switch ($rule) {
         case 'default':
-            $rule = "ORDER BY id DESC";
+            $rule = "id DESC";
+            break;
+        case 'sell':
+            $rule = "sellnum DESC";
+            break;
+        case 'cart':
+            $rule = "cartnum DESC";
             break;
         case 'hprice':
-            $rule = "ORDER BY price DESC";
+            $rule = "price DESC";
             break;
         case 'lprice':
-            $rule = "ORDER BY price";
+            $rule = "price";
             break;
         default:
-            $rule = "ORDER BY id";
+            $rule = "id";
             break;
     }
     $offset = $page_size * ($page - 1);
-    $page_sql = "SELECT * FROM dish ".$rule." LIMIT ".$offset.", ".$page_size.";";
+    $page_sql = "SELECT * FROM dish ORDER BY ".$rule." LIMIT ".$offset.", ".$page_size.";";
     $page_result = mysql_query($page_sql);
     while ($page_row = mysql_fetch_array($page_result)) {
-        echo '<a href=""><dl><dt style="background-image: url('.$page_row["image"].');"></dt><dd><h3>'.$page_row["name"].'</h3><p class="all-skecth">'.$page_row["sketch"].'</p><p class="all-price">'.$page_row["price"].'元</p></dd></dl></a>';
+        echo '<a href=""><dl><dt style="background-image: url('.$page_row["image"].');"></dt><dd><h3>'.$page_row["name"].'</h3><p class="all-skecth">'.$page_row["sketch"].'</p><p class="all-price">'.$page_row['price'].'<span class="yuan">元</p><p class="sell-num">已售'.$page_row["sellnum"].'份</p></dd></dl></a>';
     }
 ?>

@@ -23,16 +23,18 @@ id mediumint auto_increment primary key not null,
 dishcate tinyint not null,
 name varchar(50) not null,
 price double not null,
-spec tinyint not null,
-specialprice double,
-reco tinyint not null,
+spec tinyint default 0,
+oriprice double,
+reco tinyint default 0,
 image varchar(50) not null,
 sketch varchar(50) not null,
 details text not null,
-createtime datetime not null
+createtime datetime not null,
+cartnum int default 0,
+sellnum int default 0
 );
 insert into dish (dishcate,name,price,spec,reco,image,sketch,details,createtime) values 
-insert into dish (dishcate,name,price,spec,specialprice,reco,image,sketch,details,createtime) values
+insert into dish (dishcate,name,price,spec,oriprice,reco,image,sketch,details,createtime) values
 评价表
 create table evaluate(
 id int auto_increment primary key not null,
@@ -64,9 +66,10 @@ phone varchar(11) not null,
 address varchar(50) not null
 );
 购物车表
-create table shoppingcart(
+create table cart(
 id int auto_increment primary key not null,
 userid int not null,
 dishid mediumint not null,
+num tinyint not null default 1,
 createtime datetime not null
 );
