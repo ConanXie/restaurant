@@ -34,8 +34,8 @@ var loginForm = {
     username: document.login.username,
     password: document.login.password,
     errorBox: document.querySelector('#login-error'),
-    isUserPass: 0,
-    isPwPass: 0,
+    isUserPass: 1,
+    isPwPass: 1,
     usernamePattern: /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$|^[\w\d]+$/,
     passwordPattern: /^[\w\d]+$/,
 
@@ -60,8 +60,24 @@ var loginForm = {
                 that.isUserPass = 0;
                 return;
             }
-            that.isUserPass = 1;
-            that.errorBox.style.display = 'none';
+            var xhr = new XMLHttpRequest();
+            var self = this;
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.responseText == 'no user') {
+                        that.errorBox.style.display = 'block';
+                        that.errorBox.style.top = self.offsetTop + 42 + 'px';
+                        that.errorBox.innerHTML = '用户名或邮箱不存在';
+                        that.isUserPass = 0;
+                    } else {
+                        that.isUserPass = 1;
+                        that.errorBox.style.display = 'none';
+                    }
+                }
+            };
+            xhr.open('post', 'verify.php', true);
+            xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            xhr.send('username=' + this.value);
         }, false);
     },
     verityPassword: function () {
@@ -81,12 +97,29 @@ var loginForm = {
                 that.isPwPass = 0;
                 return;
             }
-            that.isPwPass = 1;
-            that.errorBox.style.display = 'none';
+            var xhr = new XMLHttpRequest();
+            var self = this;
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.responseText == 'password error') {
+                        that.errorBox.style.display = 'block';
+                        that.errorBox.style.top = self.offsetTop + 42 + 'px';
+                        that.errorBox.innerHTML = '密码错误';
+                        that.isPwPass = 0;
+                    } else {
+                        that.isPwPass = 1;
+                        that.errorBox.style.display = 'none';
+                    }
+                }
+            };
+            xhr.open('post', 'verify.php', true);
+            xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            xhr.send('username=' + that.username.value + '&password=' + this.value);
         }, false);
     },
     checkForm: function () {
-        if (!this.isUserPass || !isPwPass) {
+        console.log(this.isUserPass +', ' + this.isPwPass)
+        if (!this.isUserPass || !this.isPwPass) {
             return false;
         }
     }
@@ -128,8 +161,24 @@ var signupForm = {
                 that.isUserPass = 0;
                 return;
             }
-            that.isUserPass = 1;
-            that.errorBox.style.display = 'none';
+            var xhr = new XMLHttpRequest();
+            var self = this;
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.responseText == 'user exist') {
+                        that.errorBox.style.display = 'block';
+                        that.errorBox.style.top = self.offsetTop + 42 + 'px';
+                        that.errorBox.innerHTML = '该用户名已注册';
+                        that.isUserPass = 0;
+                    } else {
+                        that.isUserPass = 1;
+                        that.errorBox.style.display = 'none';
+                    }
+                }
+            };
+            xhr.open('post', 'verify.php', true);
+            xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            xhr.send('username=' + this.value);
         }, false);
     },
     verityPassword: function () {
@@ -163,8 +212,24 @@ var signupForm = {
                 that.isEmailPass = 0;
                 return;
             }
-            that.isEmailPass = 1;
-            that.errorBox.style.display = 'none';
+            var xhr = new XMLHttpRequest();
+            var self = this;
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.responseText == 'user exist') {
+                        that.errorBox.style.display = 'block';
+                        that.errorBox.style.top = self.offsetTop + 42 + 'px';
+                        that.errorBox.innerHTML = '该邮箱已注册';
+                        that.isEmailPass = 0;
+                    } else {
+                        that.isEmailPass = 1;
+                        that.errorBox.style.display = 'none';
+                    }
+                }
+            };
+            xhr.open('post', 'verify.php', true);
+            xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            xhr.send('username=' + this.value);
         }, false);
     },
     checkForm: function () {
