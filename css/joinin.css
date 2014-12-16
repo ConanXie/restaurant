@@ -40,14 +40,30 @@ input {
 }
 input[type="text"], input[type="password"], input[type="email"] {
     border-bottom: 1px solid #ddd;
-    padding-left: 1.5em;
+    padding-left: 2em;
     margin: 1em auto;
     box-sizing: border-box;
+    transition: border 0.5s;
 }
 input[type="submit"] {
     margin-top: 2em;
     color: #fff;
     background: #e84e40;
+}
+input[type="text"] {
+    background: url(../img/icon/join.png) no-repeat left 108%;
+    background-size: 1.7em;
+}
+input[type="password"] {
+    background: url(../img/icon/join.png) no-repeat left -5%;
+    background-size: 1.7em;
+}
+input[type="email"] {
+    background: url(../img/icon/join.png) no-repeat left 50%;
+    background-size: 1.7em;
+}
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+    border-bottom: 1px solid #f69988;
 }
 .login-box {
     text-align: right;
@@ -62,7 +78,7 @@ input[type="submit"] {
     display: none;
     position: absolute;
     left: 2em;
-    color: #888;
+    color: #e00032;
     line-height: 2em;
     padding: 0 10px;
     border-radius: 3px;
