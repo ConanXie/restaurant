@@ -51,15 +51,15 @@ input[type="submit"] {
     background: #e84e40;
 }
 input[type="text"] {
-    background: url(../img/icon/join.png) no-repeat left 108%;
+    background: url(../img/icons/join.png) no-repeat left 108%;
     background-size: 1.7em;
 }
 input[type="password"] {
-    background: url(../img/icon/join.png) no-repeat left -5%;
+    background: url(../img/icons/join.png) no-repeat left -5%;
     background-size: 1.7em;
 }
 input[type="email"] {
-    background: url(../img/icon/join.png) no-repeat left 50%;
+    background: url(../img/icons/join.png) no-repeat left 50%;
     background-size: 1.7em;
 }
 input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {

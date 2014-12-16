@@ -8,7 +8,7 @@
         <div id="signup">注册</div>
     </div>
     <div class="login-box">
-        <form action="loginVerify.php" method="post" name="login" onsubmit="return loginForm.checkForm();">
+        <form action="verify.php" method="post" name="login" onsubmit="return loginForm.checkForm();">
             <input type="text" id="login-username" name="username" placeholder="用户名/邮箱" required autocomplete="on" value="" />
             <input type="password" id="login-password" name="password" placeholder="密码" required autocomplete="on" value="" />
             <input type="submit" name="submit" value="登录" />
@@ -17,7 +17,7 @@
         <a href="">忘记密码？</a>
     </div>
     <div class="signup-box">
-        <form action="index.php" method="post" name="signup" onsubmit="return signupForm.checkForm();">
+        <form action="verify.php" method="post" name="signup" onsubmit="return signupForm.checkForm();">
             <input type="text" id="signup-username" name="username" placeholder="用户名" required />
             <input type="password" id="signup-password" name="password" placeholder="密码" required />
             <input type="email" id="email" name="email" placeholder="邮箱" required />

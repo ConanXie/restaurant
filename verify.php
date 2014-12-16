@@ -26,16 +26,23 @@
             echo 'password error';
         }
     } else if ($_POST['submit']) {
-        if (preg_match("/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/", $_POST['username'])) {
-            $login_sql = "SELECT * FROM user WHERE email = '".$_POST['username']."' AND password='".$_POST['password']."';";
+        if ($_POST['email']) {
+            $signup_sql = "INSERT INTO user (username, password, email, registerdate) values ('".$_POST['username']."', '".$_POST['password']."', '".$_POST['email']."', now());";
+            mysql_query($signup_sql);
+            $_SESSION['USERNAME'] = $_POST['username'];
+            header("Location: ".$config_basedir."myhome.php");
         } else {
-            $login_sql = "SELECT * FROM user WHERE username = '".$_POST['username']."' AND password='".$_POST['password']."';";
+            if (preg_match("/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/", $_POST['username'])) {
+                $login_sql = "SELECT * FROM user WHERE email = '".$_POST['username']."' AND password='".$_POST['password']."';";
+            } else {
+                $login_sql = "SELECT * FROM user WHERE username = '".$_POST['username']."' AND password='".$_POST['password']."';";
+            }
+            $login_result = mysql_query($login_sql);
+            $login_row = mysql_fetch_array($login_result);
+            $_SESSION['USERID'] = $login_row['id'];
+            $_SESSION['USERNAME'] = $login_row['username'];
+            header("Location: ".$config_basedir);
         }
-        $login_result = mysql_query($login_sql);
-        $login_row = mysql_fetch_array($login_result);
-        $_SESSION['USERID'] = $login_row['id'];
-        $_SESSION['USERNAME'] = $login_row['username'];
-        header("Location: ".$config_basedir);
     } else {
         header("Location: ".$config_basedir."joinin.php");
     }
