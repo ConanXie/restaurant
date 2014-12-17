@@ -260,22 +260,24 @@ section {
     color: #f00;
 }
 .page a {
+    display: block;
+    width: 100%;
     text-decoration: none;
     color: #000;
 }
 dl {
-    padding: 10px;
+    padding: 1em 0.5em;
     border-bottom: 1px solid #e0e0e0;
     display: -webkit-box;
 }
 dt {
-    -webkit-box-flex: 1.1;
+    -webkit-box-flex: 1;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100%;
+    background-size: auto 100%;
 }
 dd {
-    -webkit-box-flex: 1.9;
+    -webkit-box-flex: 1;
     padding-left: 1em;
 }
 dd h3 {
