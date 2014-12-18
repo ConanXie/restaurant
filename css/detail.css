@@ -1,0 +1,147 @@
+img {
+    width: 100%;
+    display: block;
+}
+section {
+    padding: 1em;
+    margin: 0;
+}
+#brief h3 {
+    line-height: 2em;
+}
+.all-price, .sell-num {
+    width: 50%;
+}
+.sell-num {
+    text-align: right;
+}
+#brief:after, .clear:after, .eva-dt:after, .e-total:after {
+    content: '';
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+.button {
+    color: #fff;
+    background: #dd191d;
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    border-radius: 2px;
+    box-shadow: 1px 1px 3px rgba(100, 100, 100, 0.5);
+    float: right;
+}
+#add-cart {
+    background: #fb8c00;
+    margin-right: 1em;
+}
+
+
+#detail-box {
+    margin-top: 1em;
+}
+#detail-box nav {
+    margin-bottom: 2em;
+}
+#detail-box ul {
+    display: -webkit-box;
+}
+#detail-box li {
+    list-style-type: none;
+    -webkit-box-flex: 1;
+    text-align: center;
+}
+#show-detail {
+    border-right: 1px solid #000;
+}
+.now-box {
+    color: #f00;
+}
+#evaluate {
+    display: none;
+}
+.total-box {
+    margin: 0 0 1em 4.5em;
+}
+.total-point, .total {
+    display: inline-block;
+}
+.total-point {
+    font-size: 3.5em;
+}
+.total {
+    margin-left: 0.5em;
+}
+.star, .person {
+    font: normal 0.8em "icon";
+}
+
+.e-total {
+    margin-bottom: 0.2em;
+}
+.star-num, .graph-trip, .p-num {
+    float: left;
+}
+.star-num {
+    display: block;
+    margin-right: 0.5em;
+    width: 5em;
+    font: normal 0.6em "icon";
+    line-height: 1.4em;
+    text-align: right;
+}
+.graph-trip {
+    height: 1em;
+}
+#graph1 {
+    background-color: #8ac249;
+}
+#graph2 {
+    background-color: #ccdb38;
+}
+#graph3 {
+    background-color: #ffea3a;
+}
+#graph4 {
+    background-color: #ffb233;
+}
+#graph5 {
+    background-color: #ff8b5a;
+}
+.p-num {
+    margin-left: 0.5em;
+    font-size: 0.9em;
+}
+
+
+.eva-dl {
+    padding: 1em 0;
+    margin: 1em 0;
+    border-top: 1px solid #eee;
+}
+.eva-dt {
+    font-size: 2em;
+}
+.head-image {
+    display: inline-block;
+    float: left;
+    width: 2em;
+    height: 2em;
+    margin-right: 0.5em;
+    background: #ddd;
+    border-radius: 50%;
+}
+.user-info {
+    font-size: 1rem;
+    display: inline-block;
+    float: left;
+}
+.name {
+    line-height: 2em;
+}
+.info {
+    font: normal 1em "icon";
+}
+.eva-dd {
+    margin-left: 5em;
+}
