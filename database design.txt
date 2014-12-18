@@ -44,6 +44,7 @@ star tinyint not null,
 content varchar(200),
 createtime datetime not null
 );
+insert into evaluate (dishid, userid, star, content, createtime) values (1, 1, 4, '这菜还行', now());
 订单表
 create table orders(
 id int auto_increment primary key not null,
