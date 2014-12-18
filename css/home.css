@@ -1,0 +1,24 @@
+body {
+    
+    background: #7CC699;
+}
+#head {
+    padding: 3em 0;
+    color: #fff;
+    text-align: center;
+}
+#master {
+    font: normal 5em "icon";
+}
+.e-mana {
+    width: 33.3%;
+    float: left;
+    padding: 2em 0;
+    text-align: center;
+    color: #fff;
+}
+.e-mana a {
+    color: #fff;
+    text-decoration: none;
+    font: normal 4em "icon";
+}
