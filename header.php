@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="css/islider.css">
     <script src="js/islider.js"></script>
     <script src="js/islider_plugin.js"></script>
-    <script src="js/main.js"></script>
 </head>
 <body>
+    <script src="js/main.js"></script>
     <header>
         <a href="index.php">Conan</a>
         <div id="menu-button">&#xe807;</div>
@@ -34,7 +34,7 @@
                 $cate_sql = "SELECT * FROM dishcate;";
                 $cate_result = mysql_query($cate_sql);
                 while ($cate_row = mysql_fetch_array($cate_result)) {
-                    echo '<li><a href=""><span class="icon">&#xe88f;</span><p class="cate">'.$cate_row["cate"].'</p></a></li>';
+                    echo '<li><a href="viewcate.php?id='.$cate_row["id"].'"><span class="icon">&#xe88f;</span><p class="cate">'.$cate_row["cate"].'</p></a></li>';
                 }
             ?>
         </ul>

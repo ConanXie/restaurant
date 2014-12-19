@@ -212,7 +212,7 @@ section {
     color: #f00;
 }
 .ori-price {
-    color: #c0c0c0;
+    color: #fb8c00;
     font-size: 0.6em;
     text-decoration: line-through;
 }
@@ -239,12 +239,17 @@ section {
 #rule-list {
     position: absolute;
     top: 0;
-    left: 6em;
+    right: 0.8em;
     padding: 0 1em;
     background: #fff;
     box-shadow: 0 0 30px rgba(100, 100, 100, 0.6);
     z-index: 1;
     display: none;
+}
+#now-sort {
+    float: right;
+    margin-right: 3%;
+    line-height: 3.6em;
 }
 #now-sort span {
     font-family: "icon";
@@ -268,17 +273,21 @@ section {
 .dish-dl {
     padding: 1em 0.5em;
     border-bottom: 1px solid #e0e0e0;
-    display: -webkit-box;
+    height: 6em;
+}
+.dish-dt, .dish-dd {
+    float: left;
+    height: 100%;
 }
 .dish-dt {
-    -webkit-box-flex: 1;
+    width: 33.3%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto 100%;
 }
 .dish-dd {
-    -webkit-box-flex: 1;
-    padding-left: 1em;
+    width: 63.6%;
+    padding-left: 3%;
 }
 .dish-dd h3 {
     font-size: 1.1em;

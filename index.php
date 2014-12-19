@@ -26,6 +26,7 @@
     islider.renderDot({
             top: '220px',
             width: '90%',
+            height: '40px',
             diameter: '0.8em',
             borderColor: '#fff',
     });
@@ -33,7 +34,7 @@
 <section id="special">
     <div class="sp-head">
         <h2>今日特价</h2>
-        <a href="" class="so-more">更多 ></a>
+        <a href="spec.php" class="so-more">更多 &gt;</a>
     </div>
     <div id="so-box">
         <?php
@@ -59,14 +60,24 @@
     </div>
     <div class="page">
     <?php
-        $all_sql = "SELECT * FROM dish ORDER BY id DESC LIMIT 1;";
+        $all_sql = "SELECT * FROM dish ORDER BY id DESC LIMIT 4;";
         $all_result = mysql_query($all_sql);
-        $all_row = mysql_fetch_array($all_result);
-        echo '<a href="detail.php?id='.$all_row["id"].'"><dl class="dish-dl"><dt class="dish-dt" style="background-image: url('.$all_row["image"].');"></dt><dd class="dish-dd"><h3>'.$all_row["name"].'</h3><p class="all-skecth">'.$all_row["sketch"].'</p><p class="all-price">'.$all_row["price"].'<span class="yuan">元</p><p class="sell-num">已售'.$all_row["sellnum"].'份</p></dd></dl></a>';
+        while ($all_row = mysql_fetch_array($all_result)) {
+            if ($all_row["spec"]) {
+                $price = '<span><span class="so-price">'.$all_row["price"].'<span class="yuan">元</span> <span class="ori-price">'.$all_row["oriprice"].'元</span></span>';
+            } else {
+                $price = '<p class="all-price">'.$all_row["price"].'<span class="yuan">元</p>';
+            }
+            echo '<a href="detail.php?id='.$all_row["id"].'"><dl class="dish-dl"><dt class="dish-dt" style="background-image: url('.$all_row["image"].');"></dt><dd class="dish-dd"><h3>'.$all_row["name"].'</h3><p class="all-skecth">'.$all_row["sketch"].'</p>'.$price.'<p class="sell-num">已售'.$all_row["sellnum"].'份</p></dd></dl></a>';
+        }
     ?>
     </div>
 </section>
 <div class="load-more" id="load-more"><span>&#xe6c6;</span>加载中</div>
+<script>
+    var theDish = new Dish('all');
+    window.onscroll = theDish.onscroll;
+</script>
 <?php
     require('footer.php');
 ?>
