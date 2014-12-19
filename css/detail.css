@@ -11,8 +11,14 @@ section {
 }
 .all-price, .sell-num {
     width: 50%;
+    display: inline-block;
+    float: none;
+}
+.all-price {
+    font-size: 2em;
 }
 .sell-num {
+    line-height: 1em;
     text-align: right;
 }
 #brief:after, .clear:after, .eva-dt:after, .e-total:after {
@@ -25,7 +31,7 @@ section {
 .button {
     color: #fff;
     background: #dd191d;
-    margin-top: 1em;
+    margin-top: 1.5em;
     padding: 0.5em 1em;
     border-radius: 2px;
     box-shadow: 1px 1px 3px rgba(100, 100, 100, 0.5);
