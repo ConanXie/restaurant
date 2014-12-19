@@ -41,7 +41,7 @@
             $login_row = mysql_fetch_array($login_result);
             $_SESSION['USERID'] = $login_row['id'];
             $_SESSION['USERNAME'] = $login_row['username'];
-            header("Location: ".$config_basedir);
+            header("Location: ".$config_basedir."myhome.php");
         }
     } else {
         header("Location: ".$config_basedir."joinin.php");

@@ -1,9 +1,12 @@
 <?php
-    session_start();
     require('header.php');
     if (!isset($_SESSION['USERNAME'])) {
         header("Location: ".$config_basedir);
         exit();
+    }
+    if (!isset($_SESSION['USERID'])) {
+        $user_row = mysql_fetch_array(mysql_query("SELECT * FROM user WHERE username = '".$_SESSION['USERNAME']."';"));
+        $_SESSION['USERID'] = $user_row['id'];
     }
 ?>
 <link rel="stylesheet" href="css/home.css">
