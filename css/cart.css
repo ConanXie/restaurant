@@ -1,0 +1,56 @@
+.cart-box {
+    padding: 1em 3%;
+}
+.check, .cart-image, .cart-info {
+    float: left;
+}
+.check {
+    width: 8%;
+    line-height: 3em;
+}
+.cart-image {
+    width: 17%;
+    height: 3em;
+    background: #ccc;
+}
+.cart-info {
+    width: 75%;
+    /*height: 3em;*/
+    position: relative;
+}
+.dish-info, .edit-box {
+    /*position: absolute;*/
+    width: 100%;
+    height: 100%;
+}
+.dish-name {
+    width: 80%;
+    float: left;
+}
+.dish-price {
+    width: 20%;
+    float: left;
+    text-align: right;
+}
+.button {
+    float: right;
+}
+input[type="button"] {
+    width: 3em;
+    height: 2em;
+}
+.dish-info:after, .cart-box:after {
+    content: '';
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 3em;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}

@@ -16,7 +16,7 @@
 </div>
 <div class="manager">
     <div class="e-mana">
-        <a href="">&#xe675;</a>
+        <a href="cart.php">&#xe675;</a>
         <p>购物车</p>
     </div>
     <div class="e-mana">
