@@ -1,6 +1,6 @@
 <?php
     require('config.php');
-    sleep(0.5);
+    sleep(1);
     $all_num = mysql_num_rows(mysql_query("SELECT * FROM dish;"));
     $page_size = 1;
     $page_num = intval($all_num / $page_size);
