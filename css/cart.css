@@ -1,30 +1,43 @@
+body {
+    background: #fff;
+}
 .cart-box {
     padding: 1em 3%;
+    border-bottom: 1px solid #eee;
 }
 .check, .cart-image, .cart-info {
     float: left;
 }
 .check {
     width: 8%;
-    line-height: 3em;
+    line-height: 4em;
 }
 .cart-image {
-    width: 17%;
-    height: 3em;
-    background: #ccc;
+    width: 18%;
+    height: 4em;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
 }
 .cart-info {
-    width: 75%;
-    /*height: 3em;*/
+    width: 74%;
     position: relative;
 }
 .dish-info, .edit-box {
-    /*position: absolute;*/
     width: 100%;
     height: 100%;
+    background: #fff;
+}
+.dish-info a {
+    color: #000;
+}
+.edit-box {
+    position: absolute;
+    top: 0;
 }
 .dish-name {
-    width: 80%;
+    width: 77%;
+    padding-left: 3%;
     float: left;
 }
 .dish-price {
@@ -32,14 +45,54 @@
     float: left;
     text-align: right;
 }
-.button {
-    float: right;
-}
 input[type="button"] {
     width: 3em;
     height: 2em;
 }
-.dish-info:after, .cart-box:after {
+.edit-btn {
+    float: right;
+    margin-top: 1em;
+}
+.edit-box {
+    display: none;
+    width: 97%;
+    padding-left: 3%;
+}
+.edit-num {
+    margin-top: 0.5em;
+}
+.subtract-btn, .num-now, .plus-btn {
+    float: left;
+    background: #fff;
+    border: none;
+    outline: none;
+    border: 1px solid #000;
+    font-size: 1.1em;
+    transition: 0.5s;
+}
+.num-now {
+    border-left: none;
+    border-right: none;
+}
+.subtract-btn:active, .plus-btn:active {
+    background: #d01716;
+    color: #fff;
+}
+.edit-btn, .delete-btn, .finish-btn {
+    font-size: 1.1em;
+    color: #fff;
+    background: #f36c60;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    float: right;
+}
+.finish-btn {
+    background: #fff;
+    color: #d01716;
+    margin-top: 1em;
+}
+.dish-info:after, .cart-box:after, .edit-num:after {
     content: '';
     display: block;
     visibility: hidden;
@@ -53,4 +106,25 @@ footer {
     height: 3em;
     background: #fff;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    line-height: 3em;
+}
+footer input {
+    margin-left: 3%;
+}
+footer p {
+    float: right;
+    font-size: 1.2em;
+    line-height: 2.6em;
+    color: #f00;
+}
+footer a {
+    float: right;
+    padding: 0.3em 0.4em;
+    margin: 0.3em 3% 0 3%;
+    font-size: 1.2em;
+    background: #e51c23;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    line-height: 1.3em;
 }
