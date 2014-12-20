@@ -113,7 +113,7 @@ aside ul li:after {
     height: 0;
     clear: both;
 }
-#occupy {
+.occupy {
     height: 50px;
 }
 section {

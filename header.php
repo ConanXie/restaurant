@@ -39,4 +39,4 @@
             ?>
         </ul>
     </aside>
-    <div id="occupy"></div>
+    <div class="occupy"></div>
