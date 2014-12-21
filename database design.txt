@@ -49,20 +49,25 @@ insert into evaluate (dishid, userid, star, content, createtime) values (1, 1, 4
 create table orders(
 id int auto_increment primary key not null,
 userid int not null,
-createtime datetime not null,
-evaluated tinyint not null
+outsell tinyint default 1,
+contactid int not null,
+sumcost float not null,
+createtime datetime not null
 );
 订单详情表
-create table orderdetail(
+create table odetail(
 id int auto_increment primary key not null,
 orderid int not null,
 dishid mediumint not null,
-num tinyint
+num tinyint,
+cost double not null,
+evaluated tinyint default 0
 );
-联系电话与地址表
-create table contactway(
+联系人，电话与地址表
+create table contact(
 id int auto_increment primary key not null,
 userid int not null,
+name varchar(10) not null,
 phone varchar(11) not null,
 address varchar(50) not null
 );
