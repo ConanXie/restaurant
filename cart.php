@@ -6,6 +6,7 @@
     }
     echo '<link rel="stylesheet" href="css/cart.css">';
 ?>
+<form action="order.php" method="post">
 <section id="cart-sec">
     <?php
         $cart_sql = "SELECT cart.*, dish.* FROM cart, dish WHERE userid = ".$_SESSION["USERID"]." AND cart.dishid = dish.id ORDER BY cart.id DESC;";
@@ -14,7 +15,7 @@
             ?>
             <div class="cart-box" data-num="<?php echo $cart_row["num"]; ?>" data-price="<?php echo $cart_row["price"]; ?>" data-cartid="<?php echo $cart_row[0]; ?>" data-dishid="<?php echo $cart_row[5]; ?>">
                 <div class="check">
-                    <input type="checkbox" class="checkbox">
+                    <input type="checkbox" name="checkdish[]" class="checkbox" value="<?php echo $cart_row[5]; ?> <?php echo $cart_row['num']; ?>">
                 </div>
                 <div class="cart-image" style="background-image: url(<?php echo $cart_row['image']; ?>);"></div>
                 <div class="cart-info">
@@ -49,9 +50,10 @@
 <div class="occupy"></div>
 <footer>
     <input type="checkbox" id="check-all"><span> 全选</span>
-    <a href="">结算</a>
+    <input type="submit" id="submit" value="结算">
     <p>合计: <span id="sum-price">0</span><span class="yuan">元</span></p>
 </footer>
+</form>
 <script src="js/cart.js"></script>
 <?php
     require('footer.php');
