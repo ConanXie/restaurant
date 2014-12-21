@@ -4,14 +4,6 @@
 <section id="dish-box">
     <div id="sort-nav" style="margin-top: 0;">
         <h2>今日特价</h2>
-        <!-- <h4 id="now-sort">默认排序<span>&#xe8a1;</span></h4>
-        <ul id="rule-list">
-            <li class="sort-rule now-rule" data-rule="default">默认排序</li>
-            <li class="sort-rule" data-rule="sell">销售排序</li>
-            <li class="sort-rule" data-rule="cart">购物车排序</li>
-            <li class="sort-rule" data-rule="hprice">价格从高到低</li>
-            <li class="sort-rule" data-rule="lprice">价格从低到高</li>
-        </ul> -->
     </div>
     <div class="page">
 <?php
@@ -28,8 +20,6 @@
 ?>
 </div>
 </section>
-<script>
-</script>
 <?php
     require('footer.php');
 ?>
