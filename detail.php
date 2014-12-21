@@ -13,7 +13,10 @@
 
     echo '<img src="'.$dish_row['image'].'"><section id="brief"><h3>'.$dish_row['name'].'</h3><p class="all-skecth">'.$dish_row['sketch'].'</p><div class="clear"><p class="all-price">'.$dish_row['price'].'<span class="yuan">元</span></p><p class="sell-num">已售'.$dish_row["sellnum"].'份</p></div>';
 ?>
-    <div class="button" id="now-buy">立即购买</div>
+    <form action="order.php" method="post">
+        <input type="checkbox" name="checkdish[]" value="<?php echo $_GET['id']; ?> 1" checked style="display: none;">
+        <input type="submit" class="button" id="now-buy" value="立即购买">
+    </form>
     <div class="button" id="add-cart">加入购物车</div>
 </section>
 <section id="detail-box">
@@ -118,28 +121,9 @@
             <?php
                 $eva_sql = "SELECT evaluate.*, user.* FROM evaluate, user WHERE evaluate.dishid = ".$_GET["id"]." AND evaluate.userid = user.id ORDER BY evaluate.id DESC;";
                 $eva_result = mysql_query($eva_sql);
+                $star_arr = array('', '&#xe8f2;&#xe8f4;&#xe8f4;&#xe8f4;&#xe8f4;', '&#xe8f2;&#xe8f2;&#xe8f4;&#xe8f4;&#xe8f4;', '&#xe8f2;&#xe8f2;&#xe8f2;&#xe8f4;&#xe8f4;', '&#xe8f2;&#xe8f2;&#xe8f2;&#xe8f2;&#xe8f4;', '&#xe8f2;&#xe8f2;&#xe8f2;&#xe8f2;&#xe8f2;');
                 while ($eva_row = mysql_fetch_array($eva_result)) {
-                    switch ($eva_row["star"]) {
-                        case 1:
-                            $star = '&#xe8f2;&#xe8f4;&#xe8f4;&#xe8f4;&#xe8f4;';
-                            break;
-                        case 2:
-                            $star = '&#xe8f2;&#xe8f2;&#xe8f4;&#xe8f4;&#xe8f4;';
-                            break;
-                        case 3:
-                            $star = '&#xe8f2;&#xe8f2;&#xe8f2;&#xe8f4;&#xe8f4;';
-                            break;
-                        case 4:
-                            $star = '&#xe8f2;&#xe8f2;&#xe8f2;&#xe8f2;&#xe8f4;';
-                            break;
-                        case 5:
-                            $star = '&#xe8f2;&#xe8f2;&#xe8f2;&#xe8f2;&#xe8f2;';
-                            break;
-                        default:
-                            $star = '&#xe8f2;&#xe8f2;&#xe8f2;&#xe8f2;&#xe8f2;';
-                            break;
-                    }
-                    echo '<dl class="eva-dl"><dt class="eva-dt"><span class="head-image"></span><div class="user-info"><p class="name">'.$eva_row["username"].'</p><p class="info">'.$star.' '.$eva_row["createtime"].'</p></div></dt><dd class="eva-dd">'.$eva_row["content"].'</dd></dl>';
+                    echo '<dl class="eva-dl"><dt class="eva-dt"><span class="head-image"></span><div class="user-info"><p class="name">'.$eva_row["username"].'</p><p class="info">'.$star_arr[$eva_row["star"]].' '.$eva_row["createtime"].'</p></div></dt><dd class="eva-dd">'.$eva_row["content"].'</dd></dl>';
                 }
             ?>
         </div>
