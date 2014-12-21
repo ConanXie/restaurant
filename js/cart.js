@@ -79,6 +79,7 @@ Cart.prototype = {
             that.editBox.style.display = 'none';
             that.node.dataset.num = that.numNow.value;
             that.dishNum.innerHTML = 'x' + that.numNow.value;
+            that.check.value = that.check.value.replace(/\d+/, that.numNow.value);
             calculate.calPrice();
         }, false);
     },
