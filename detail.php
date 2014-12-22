@@ -62,15 +62,15 @@
             }
             $sum++;
         }
-        $average = ($star1 + $star2*2 + $star3*3 + $star4*4 + $star5*5)/$sum;
+        $average = (!$sum) ? 0 : ($star1 + $star2*2 + $star3*3 + $star4*4 + $star5*5)/$sum;
         $average = round($average, 1);
         $star = array($star1, $star2, $star3, $star4, $star5);
         sort($star);
-        $star1_len = ($star1/$star[4])*50;
-        $star2_len = ($star2/$star[4])*50;
-        $star3_len = ($star3/$star[4])*50;
-        $star4_len = ($star4/$star[4])*50;
-        $star5_len = ($star5/$star[4])*50;
+        $star1_len = (!$star[4]) ? 0 : ($star1/$star[4])*50;
+        $star2_len = (!$star[4]) ? 0 : ($star2/$star[4])*50;
+        $star3_len = (!$star[4]) ? 0 : ($star3/$star[4])*50;
+        $star4_len = (!$star[4]) ? 0 : ($star4/$star[4])*50;
+        $star5_len = (!$star[4]) ? 0 : ($star5/$star[4])*50;
     ?>
     <div id="evaluate">
         <div class="graph">
