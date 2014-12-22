@@ -1,0 +1,54 @@
+form {
+    background: #fff;
+    padding: 1em 3%;
+    margin-top: 1em;
+    box-shadow: 0 0 3px rgba(100, 100, 100, 0.5);
+}
+.choice {
+    margin: 1em;
+}
+#contact-box {
+    display: none;
+    margin-left: 2.5em;
+}
+#contact-box p {
+    line-height: 2em;
+}
+.order-list {
+    margin: 1em 0;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+td {
+    width: 33.3%;
+    height: 2em;
+}
+.sum-cost {
+    font-size: 1.3em;
+    color: #f00;
+    margin-top: 1em;
+    text-align: right;
+}
+form:after {
+    content: '';
+    height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+input[type="submit"] {
+    float: right;
+    margin-top: 1em;
+    outline: none;
+    border: none;
+    font-family: "微软雅黑 Light", 微软雅黑, 黑体;
+    font-size: 1em;
+    color: #fff;
+    padding: 0.5em 1em;
+    border-radius: 2px;
+    box-shadow: 1px 1px 3px rgba(100, 100, 100, 0.5);
+    background: #dd191d;
+}
