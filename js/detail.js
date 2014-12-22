@@ -40,7 +40,7 @@ cart.addCart.addEventListener('click', function (e) {
             if (xhr.responseText == 'success') {
                 alert('已添加到购物车');
             } else {
-                alert('请先登录');
+                alert('添加出错');
             }
         }
     };
