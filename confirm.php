@@ -1,10 +1,17 @@
 <?php
-    require('header.php');
+    require('config.php');
+    session_start();
     if (!isset($_SESSION['USERID']) || !isset($_SESSION['confirm'])) {
         header("Location: ".$config_basedir);
         exit();
     } else {
-        mysql_query("INSERT INTO orders (userid, outsell, contactid, sumcost, createtime) VALUES (".$_SESSION['USERID'].", ".$_POST['choice'].", ".$_POST['contact'].", ".$_POST['cost'].", now());");
+        unset($_SESSION['confirm']);
+        if ($_POST['choice']) {
+            $order_sql = "INSERT INTO orders (userid, contactid, sumcost, createtime) VALUES (".$_SESSION['USERID'].", ".$_POST['contact'].", ".$_POST['cost'].", now());";
+        } else {
+            $order_sql = "INSERT INTO orders (userid, outsell, sumcost, createtime) VALUES (".$_SESSION['USERID'].", ".$_POST['choice'].", ".$_POST['cost'].", now());";
+        }
+        mysql_query($order_sql);
         $order_id = mysql_insert_id();
         foreach($_POST['checkdish'] as $checkdish) {
             $dish_info = explode(' ', $checkdish);
@@ -13,8 +20,9 @@
         }
         $time = 3;
         $url = $config_basedir;
-        unset($_SESSION['confirm']);
-        header("refresh:{$time};url={$url}");
+        header("Refresh: ".$time.";url=".$url);
+        require('header.php');
         echo "下单成功，3秒后跳转到主页";
     }
+    require('footer.php');
 ?>
