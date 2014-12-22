@@ -6,7 +6,7 @@
     }
     echo '<link rel="stylesheet" href="css/cart.css">';
 ?>
-<form action="order.php" method="post">
+<form action="order.php" method="post" onsubmit="return calculate.checkNull();">
 <section id="cart-sec">
     <?php
         $cart_sql = "SELECT cart.*, dish.* FROM cart, dish WHERE userid = ".$_SESSION["USERID"]." AND cart.dishid = dish.id ORDER BY cart.id DESC;";

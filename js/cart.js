@@ -24,6 +24,16 @@ var calculate = {
             }
             that.calPrice();
         }, false);
+    },
+    checkNull: function () {
+        var flag = false;
+        var that = this;
+        for (var i = 0, len = that.allCart.length; i < len; i++) {
+            if (that.allCart[i].checked) {
+                flag = true;
+            }
+        }
+        return flag;
     }
 };
 calculate.checkAllDish();
