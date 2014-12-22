@@ -20,12 +20,12 @@
         <p>购物车</p>
     </div>
     <div class="e-mana">
-        <a href="">&#xe8bc;</a>
+        <a href="completed.php">&#xe8bc;</a>
         <p>已完成订单</p>
     </div>
     <div class="e-mana">
         <a href="">&#xe8bb;</a>
-        <p>待评价订单</p>
+        <p>待评价的菜</p>
     </div>
     <div class="e-mana">
         <a href="">&#xe6f2;</a>
