@@ -24,8 +24,8 @@
         <p>已完成订单</p>
     </div>
     <div class="e-mana">
-        <a href="">&#xe8bb;</a>
-        <p>待评价的菜</p>
+        <a href="evaluate.php">&#xe8f2;</a>
+        <p>我的评价</p>
     </div>
     <div class="e-mana">
         <a href="">&#xe6f2;</a>
