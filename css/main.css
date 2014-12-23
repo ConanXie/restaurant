@@ -57,7 +57,7 @@ header div, #user {
     left: 0;
     background: rgba(0, 0, 0, 0.7);
     display: none;
-    z-index: 99;
+    z-index: 98;
 }
 aside {
     position: fixed;
@@ -120,7 +120,7 @@ section {
     background: #fff;
 }
 #recommend {
-    height: 200px;
+    height: 220px;
     position: relative;
     overflow: hidden;
 }

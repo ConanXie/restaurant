@@ -24,7 +24,7 @@
         }
     });
     islider.renderDot({
-            top: '220px',
+            top: '230px',
             width: '90%',
             height: '40px',
             diameter: '0.8em',
