@@ -40,6 +40,7 @@ create table evaluate(
 id int auto_increment primary key not null,
 dishid mediumint not null,
 userid int not null,
+detailid int not null,
 star tinyint not null,
 content varchar(200),
 createtime datetime not null
