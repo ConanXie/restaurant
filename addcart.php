@@ -1,15 +1,13 @@
 <?php
     require('config.php');
-    if (!$_POST['userid'] || !$_POST['dishid']) {
+    session_start();
+    if (!isset($_SESSION['USERID']) || !isset($_SESSION['DISHID'])) {
         echo 'no logged in';
     } else {
-        $cart_num = mysql_num_rows(mysql_query("SELECT * FROM cart WHERE userid = ".$_POST['userid']." AND dishid = ".$_POST['dishid'].";"));
+        $cart_num = mysql_num_rows(mysql_query("SELECT * FROM cart WHERE userid = ".$_SESSION['USERID']." AND dishid = ".$_SESSION['DISHID'].";"));
         if (!$cart_num) {
-            $cart_row = mysql_fetch_array(mysql_query("SELECT * FROM dish WHERE id = ".$_POST['dishid'].";"));
-            $cartnum = $cart_row['cartnum'];
-            $cartnum++;
-            mysql_query("UPDATE dish SET cartnum = ".$cartnum." WHERE id = ".$_POST['dishid'].";");
-            $addcart_sql = "INSERT INTO cart (userid, dishid, createtime) VALUES (".$_POST['userid'].", ".$_POST['dishid'].", now());";
+            mysql_query("UPDATE dish SET cartnum = cartnum + 1  WHERE id = ".$_SESSION['DISHID'].";");
+            $addcart_sql = "INSERT INTO cart (userid, dishid, createtime) VALUES (".$_SESSION['USERID'].", ".$_SESSION['DISHID'].", now());";
             mysql_query($addcart_sql);
         }
         echo "success";

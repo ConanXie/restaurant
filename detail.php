@@ -6,8 +6,6 @@
         exit();
     }
     $_SESSION['DISHID'] = $_GET['id'];
-    $USERID = (!$_SESSION['USERID']) ? "''" : $_SESSION['USERID'];
-    echo '<script>var DISHID = '.$_SESSION['DISHID'].', USERID = '.$USERID.';</script>';
     $dish_sql = "SELECT * FROM dish WHERE id = ".$_GET['id'].";";
     $dish_row = mysql_fetch_array(mysql_query($dish_sql));
 

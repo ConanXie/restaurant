@@ -30,10 +30,6 @@ var cart = {
     addCart: document.querySelector('#add-cart')
 };
 cart.addCart.addEventListener('click', function (e) {
-    if (!USERID) {
-        alert('请先登录');
-        return;
-    }
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
@@ -46,5 +42,5 @@ cart.addCart.addEventListener('click', function (e) {
     };
     xhr.open('post', 'addcart.php', true);
     xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-    xhr.send('userid=' + USERID + '&dishid=' + DISHID);
+    xhr.send(null);
 }, false);
