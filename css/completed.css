@@ -1,6 +1,6 @@
 section {
     margin: 1em 0;
-    padding: 3%;
+    padding: 0 3%;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 .order-head {
@@ -8,14 +8,14 @@ section {
 }
 .order-index {
     float: left;
-    line-height: 2em;
+    line-height: 3em;
 }
 .order-id, .order-sell {
     color: #e51c23;
 }
 .order-sell {
     float: right;
-    line-height: 2em;
+    line-height: 3em;
 }
 .order-head:after, .dish-info:after {
     content: '';
@@ -25,7 +25,7 @@ section {
     clear: both;
 }
 .dish-info {
-    margin: 1em 0;
+    margin: 1.5em 0;
 }
 .dish-image, .dish-name, .dish-price {
     float: left;
@@ -45,5 +45,5 @@ section {
 .order-sta {
     border-top: 1px solid #eee;
     text-align: right;
-    line-height: 2em;
+    line-height: 3em;
 }
