@@ -6,6 +6,9 @@
     margin: 0;
     padding: 0;
 }
+html, body {
+    height: 100%;
+}
 body {
     font-family: "微软雅黑 Light", 微软雅黑, 黑体;
     font-size: normal;
