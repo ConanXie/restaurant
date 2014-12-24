@@ -16,7 +16,7 @@
     while ($detail_row = mysql_fetch_array($detail_result)) {
         ?>
         <div class="dish-box">
-        <p>下单日期：<?php echo $detail_row['createtime']; ?></p>
+        <p>下单时间：<?php echo $detail_row[5]; ?></p>
         <div class="dish-info">
             <div class="dish-image" style="background: url(<?php echo $detail_row['image']; ?>) no-repeat center; background-size: auto 100%;"></div>
             <div class="dish-name"><?php echo $detail_row['name']; ?></div>
