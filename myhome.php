@@ -28,7 +28,7 @@
         <p>我的评价</p>
     </div>
     <div class="e-mana">
-        <a href="">&#xe6f2;</a>
+        <a href="contact.php">&#xe6f2;</a>
         <p>联系方式</p>
     </div>
     <div class="e-mana">
