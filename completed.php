@@ -15,6 +15,7 @@
                 <div class="order-head">
                     <p class="order-index">订单号：<span class="order-id"><?php echo $order_row['id']; ?></span></p>
                     <p class="order-sell"><?php echo (!$order_row['outsell']) ? '店内消费' : '外卖'; ?></p>
+                    <p class="order-time">下单时间：<?php echo $order_row['createtime']; ?></p>
                 </div>
             <?php
             $detail_sql = "SELECT odetail.*, dish.* FROM odetail, dish WHERE orderid = ".$order_row['id']." AND dish.id = odetail.dishid;";

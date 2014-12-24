@@ -6,16 +6,19 @@ section {
 .order-head {
     border-bottom: 1px solid #eee;
 }
-.order-index {
+.order-index, .order-sell {
     float: left;
     line-height: 3em;
+    width: 50%;
 }
 .order-id, .order-sell {
     color: #e51c23;
 }
 .order-sell {
-    float: right;
-    line-height: 3em;
+    text-align: right;
+}
+.order-time {
+    line-height: 2em;
 }
 .order-head:after, .dish-info:after {
     content: '';
