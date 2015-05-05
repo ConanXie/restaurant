@@ -1,4 +1,4 @@
-管理员表
+﻿管理员表
 create table admin(
 id tinyint auto_increment primary key not null,
 username varchar(10) not null,
@@ -10,7 +10,8 @@ id int auto_increment primary key not null,
 username varchar(10) not null,
 password varchar(20) not null,
 email varchar(30) not null,
-registerdate datetime not null
+registerdate datetime not null,
+reco varchar(100)
 );
 菜的分类表
 create table dishcate(
@@ -80,3 +81,4 @@ dishid mediumint not null,
 num tinyint not null default 1,
 createtime datetime not null
 );
+

@@ -28,9 +28,9 @@
 <form action="contact.php" method="post" name="cont" onsubmit="return false;">
     <label for="name">联系人</label>
     <input type="text" id="name" name="name"><br>
-    <label for="phone">电&nbsp;&nbsp;&nbsp;话</label>
+    <label for="phone">电话</label>
     <input type="text" id="phone" name="phone"><br>
-    <label for="address">地&nbsp;&nbsp;&nbsp;址</label>
+    <label for="address">地址</label>
     <textarea name="address" id="address" cols="30" rows="5"></textarea>
     <p></p>
     <input type="submit" name="submit" value="提交">

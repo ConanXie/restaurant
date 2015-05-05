@@ -80,12 +80,19 @@ input[type="button"] {
 }
 .edit-btn, .delete-btn, .finish-btn {
     font-size: 1.1em;
+    font-family: "微软雅黑 Light", 微软雅黑, 黑体;
     color: #fff;
-    background: #f36c60;
     border: none;
     outline: none;
     border-radius: 3px;
     float: right;
+}
+.edit-btn {
+    color: #e51c23;
+    background: #fff;
+}
+.delete-btn, .finish-btn {
+    background: #f36c60;
 }
 .finish-btn {
     background: #fff;

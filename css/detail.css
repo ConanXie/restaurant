@@ -5,6 +5,7 @@ img {
 section {
     padding: 1em;
     margin: 0;
+    /*box-shadow: 0 0 10px #000;*/
 }
 #brief h3 {
     line-height: 2em;
@@ -56,11 +57,11 @@ section {
     margin-bottom: 2em;
 }
 #detail-box ul {
-    display: -webkit-box;
+    display: flex;
 }
 #detail-box li {
     list-style-type: none;
-    -webkit-box-flex: 1;
+    flex: 1;
     text-align: center;
 }
 #show-detail {

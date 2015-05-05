@@ -102,11 +102,15 @@ window.onload = function () {
         shade.style.display = 'block';
         document.documentElement.style.overflowY = 'hidden';
         aside.style.webkitTransform = 'translateX(0)';
+        aside.style.msTransform = 'translateX(0)';
+        aside.style.transform = 'translateX(0)';
     }, false);
     shade.addEventListener('click', function () {
         shade.style.display = 'none';
         document.documentElement.style.overflowY = 'auto';
         aside.style.webkitTransform = 'translateX(-110%)';
+        aside.style.msTransform = 'translateX(-110%)';
+        aside.style.transform = 'translateX(-110%)';
     });
 
 };

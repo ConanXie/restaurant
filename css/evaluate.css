@@ -12,7 +12,7 @@ section {
 .dish-box {
     margin-bottom: 1em;
     padding: 1em 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #e0e0e0;
 }
 .dish-box:after {
     content: '';
@@ -33,29 +33,32 @@ section {
 }
 .evaluate {
     float: right;
-    padding: 0.5em 1em;
+    padding: 0.3em 1.5em;
     background: #e51c23;
     color: #fff;
-    border-radius: 3px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 form {
     z-index: 11;
     position: fixed;
     width: 80%;
+    max-width: 40em;
     left: 50%;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
-    padding: 1em 5%;
+    transform: translate(-50%, -50%);
+    padding: 1em 5% 0;
     background: #fff;
     border-radius: 3px;
+    box-shadow: 0 0 10px #000;
     display: none;
 }
 .star-btn {
     font-family: "icon";
     font-size: 2em;
     display: inline-block;
-    margin: 1em 0;
+    margin: 0.5em 0;
 }
 textarea {
     width: 94%;
@@ -67,6 +70,7 @@ input[type="submit"] {
     float: right;
     outline: none;
     font-size: 1.2em;
+    font-family: "微软雅黑 Light", 微软雅黑, 黑体;
     line-height: 2em;
     border: none;
     background: #fff;

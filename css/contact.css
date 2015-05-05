@@ -2,6 +2,7 @@ li {
     background: #fff;
     margin-bottom: 1em;
     padding: 1em 3%;
+    box-shadow: 0 1px 3px #ccc;
 }
 .cont p {
     line-height: 2em;
@@ -20,16 +21,14 @@ li {
     padding: 0.3em 0.8em;
     border: none;
     outline: none;
+    background: #fff;
 }
 .delete {
     margin-right: 1em;
-    background: #fff;
-    color: #f00;
+    color: #000;
 }
 .edit {
-    color: #fff;
-    background: #e51c23;
-    border-radius: 3px;
+    color: #f00;
 }
 li:after {
     content: '';
@@ -45,8 +44,8 @@ li:after {
     background: #e51c23;
     text-align: center;
     margin: 1em auto;
-    border-radius: 3px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
 }
 form {
     z-index: 11;
@@ -59,6 +58,10 @@ form {
     background: #fff;
     border-radius: 3px;
     display: none;
+}
+label {
+    display: inline-block;
+    width: 3em;
 }
 input[type="text"], textarea {
     outline: none;

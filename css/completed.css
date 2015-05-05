@@ -1,7 +1,6 @@
 section {
-    margin: 1em 0;
+    margin-bottom: 1em;
     padding: 0 3%;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 .order-head {
     border-bottom: 1px solid #eee;

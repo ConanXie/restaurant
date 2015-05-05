@@ -34,7 +34,7 @@ var evaluate = {
         }
         this.form.addEventListener('submit', function () {
             if (!that.star) {
-                alert('别忘了打星');
+                alert('别忘了打分');
                 return;
             }
             if (!that.content.value) {
