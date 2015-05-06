@@ -23,7 +23,7 @@
         }
     }
     echo '</ol>';
-    echo '<div id="add-cont" data-way="add">增加外卖地址</div>';
+    echo '<div id="add-cont" data-way="add">&#xeb68;</div>';
 ?>
 <form action="contact.php" method="post" name="cont" onsubmit="return false;">
     <label for="name">联系人</label>

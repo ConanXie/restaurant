@@ -1,8 +1,12 @@
+ol {
+    list-style-type: none;
+}
 li {
     background: #fff;
-    margin-bottom: 1em;
-    padding: 1em 3%;
-    box-shadow: 0 1px 3px #ccc;
+    margin: 0.8em 0.3em;
+    padding: 1em;
+    border-radius: 2px;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
 }
 .cont p {
     line-height: 2em;
@@ -18,13 +22,14 @@ li {
 .delete, .edit {
     float: right;
     font-size: 1em;
-    padding: 0.3em 0.8em;
+    margin-top: 1em;
+    /*padding: 0.3em 0.8em;*/
     border: none;
     outline: none;
     background: #fff;
 }
 .delete {
-    margin-right: 1em;
+    margin-right: 1.5em;
     color: #000;
 }
 .edit {
@@ -38,14 +43,18 @@ li:after {
     clear: both;
 }
 #add-cont {
-    width: 8em;
-    line-height: 2em;
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    width: 2.5em;
+    line-height: 2.5em;
     color: #fff;
+    font-family: "icon";
+    font-size: 1.5em;
     background: #e51c23;
     text-align: center;
-    margin: 1em auto;
-    border-radius: 2px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.4);
 }
 form {
     z-index: 11;
