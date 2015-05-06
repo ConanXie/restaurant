@@ -37,7 +37,7 @@
                             <input type="button" class="subtract-btn" value="-">
                             <input type="button" class="num-now" value="<?php echo $cart_row["num"]; ?>">
                             <input type="button" class="plus-btn" value="+">
-                            <input type="button" class="delete-btn" value="删除">
+                            <input type="button" class="delete-btn" value="&#xe620;">
                         </div>
                         <input type="button" class="finish-btn" value="完成">
                     </div>

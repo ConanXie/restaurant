@@ -45,7 +45,7 @@ body {
     float: left;
     text-align: right;
 }
-input[type="button"] {
+.subtract-btn, .num-now, .plus-btn {
     width: 3em;
     height: 2em;
 }
@@ -59,14 +59,14 @@ input[type="button"] {
     padding-left: 3%;
 }
 .edit-num {
-    margin-top: 0.5em;
+    margin-top: 0.8em;
 }
 .subtract-btn, .num-now, .plus-btn {
     float: left;
     background: #fff;
     border: none;
     outline: none;
-    border: 1px solid #000;
+    border: 1px solid #ccc;
     font-size: 1.1em;
     transition: 0.5s;
 }
@@ -80,6 +80,7 @@ input[type="button"] {
 }
 .edit-btn, .delete-btn, .finish-btn {
     font-size: 1.1em;
+    line-height: 2em;
     font-family: "微软雅黑 Light", 微软雅黑, 黑体;
     color: #fff;
     border: none;
@@ -91,8 +92,12 @@ input[type="button"] {
     color: #e51c23;
     background: #fff;
 }
-.delete-btn, .finish-btn {
-    background: #f36c60;
+.delete-btn {
+    font-size: 2em;
+    font-family: "icon";
+    line-height: 1em;
+    color: #343434;
+    background: #fff;
 }
 .finish-btn {
     background: #fff;
@@ -112,7 +117,7 @@ footer {
     width: 100%;
     height: 3em;
     background: #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px -1px 3px 0px rgba(0, 0, 0, 0.2);
     line-height: 3em;
 }
 footer input {
@@ -128,12 +133,11 @@ footer input[type="submit"] {
     outline: none;
     border: none;
     float: right;
-    padding: 0.3em 0.4em;
-    margin: 0.3em 3% 0 3%;
+    width: 4em;
+    height: 100%;
     font-size: 1.2em;
     background: #e51c23;
     color: #fff;
     text-decoration: none;
-    border-radius: 3px;
     line-height: 1.3em;
 }
