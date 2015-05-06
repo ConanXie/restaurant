@@ -77,7 +77,7 @@ var loginForm = {
             };
             xhr.open('post', 'verify.php', true);
             xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-            xhr.send('username=' + this.value);
+            xhr.send('username=' + self.value);
         }, false);
     },
     verityPassword: function () {

@@ -1,7 +1,7 @@
 <?php
     session_start();
     require('config.php');
-    if ($_POST['username'] && !$_POST['password'] && !$_POST['submit']) {
+    if (isset($_POST['username']) && !isset($_POST['password']) && !isset($_POST['submit'])) {
         if (preg_match("/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/", $_POST['username'])) {
             $login_sql = "SELECT * FROM user WHERE email = '".$_POST['username']."';";
         } else {
@@ -14,7 +14,7 @@
         } else {
             echo 'user exist';
         }
-    } else if ($_POST['username'] && $_POST['password'] && !$_POST['submit']) {
+    } else if (isset($_POST['username']) && isset($_POST['password']) && !isset($_POST['submit'])) {
         if (preg_match("/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/", $_POST['username'])) {
             $login_sql = "SELECT * FROM user WHERE email = '".$_POST['username']."' AND password='".$_POST['password']."';";
         } else {
@@ -25,8 +25,8 @@
         if (!$login_num) {
             echo 'password error';
         }
-    } else if ($_POST['submit']) {
-        if ($_POST['email']) {
+    } else if (isset($_POST['submit'])) {
+        if (isset($_POST['email'])) {
             $signup_sql = "INSERT INTO user (username, password, email, registerdate) values ('".$_POST['username']."', '".$_POST['password']."', '".$_POST['email']."', now());";
             mysql_query($signup_sql);
             $_SESSION['USERNAME'] = $_POST['username'];
