@@ -10,8 +10,8 @@
 <section id="cart-sec">
     <?php
         $cart_sql = "SELECT cart.*, dish.* FROM cart, dish WHERE userid = ".$_SESSION["USERID"]." AND cart.dishid = dish.id ORDER BY cart.id DESC;";
-        $cart_result = mysql_query($cart_sql);
-        while ($cart_row = mysql_fetch_array($cart_result)) {
+        $cart_result = $mysqli->query($cart_sql);
+        while ($cart_row = $cart_result->fetch_array()) {
             ?>
             <div class="cart-box" data-num="<?php echo $cart_row["num"]; ?>" data-price="<?php echo $cart_row["price"]; ?>" data-cartid="<?php echo $cart_row[0]; ?>" data-dishid="<?php echo $cart_row[5]; ?>">
                 <div class="check">
