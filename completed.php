@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="css/completed.css">
     <?php
         $order_sql = "SELECT * FROM orders WHERE userid = ".$_SESSION['USERID']." ORDER BY id DESC;";
-        $order_result = mysql_query($order_sql);
-        while ($order_row = mysql_fetch_array($order_result)) {
+        $order_result = $mysqli->query($order_sql);
+        while ($order_row = $order_result->fetch_array()) {
             ?>
             <section class="orderbox">
                 <div class="order-head">
@@ -19,9 +19,9 @@
                 </div>
             <?php
             $detail_sql = "SELECT odetail.*, dish.* FROM odetail, dish WHERE orderid = ".$order_row['id']." AND dish.id = odetail.dishid;";
-            $detail_result = mysql_query($detail_sql);
+            $detail_result = $mysqli->query($detail_sql);
             $detail_num = 0;
-            while ($detail_row = mysql_fetch_array($detail_result)) {
+            while ($detail_row = $detail_result->fetch_array()) {
                 ?>
                     <div class="dish-info">
                         <div class="dish-image" style="background: url(<?php echo $detail_row['image']; ?>) no-repeat center; background-size: auto 100%;"></div>
