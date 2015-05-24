@@ -7,7 +7,7 @@
     }
     $_SESSION['DISHID'] = $_GET['id'];
     $dish_sql = "SELECT * FROM dish WHERE id = ".$_GET['id'].";";
-    $dish_row = mysql_fetch_array(mysql_query($dish_sql));
+    $dish_row = $mysqli->query($dish_sql)->fetch_array();
 
     echo '<img src="'.$dish_row['image'].'"><section id="brief"><h3>'.$dish_row['name'].'</h3><p class="all-skecth">'.$dish_row['sketch'].'</p><div class="clear"><p class="all-price">'.$dish_row['price'].'<span class="yuan">元</span></p><p class="sell-num">已售'.$dish_row["sellnum"].'份</p></div>';
 ?>
@@ -31,14 +31,14 @@
     </div>
     <?php
         $eva_sql = "SELECT * FROM evaluate WHERE dishid = ".$_GET["id"]." ORDER BY id DESC;";
-        $eva_result = mysql_query($eva_sql);
+        $eva_result = $mysqli->query($eva_sql);
         $sum = 0;
         $star1 = 0;
         $star2 = 0;
         $star3 = 0;
         $star4 = 0;
         $star5 = 0;
-        while ($eva_row = mysql_fetch_array($eva_result)) {
+        while ($eva_row = $eva_result->fetch_array()) {
             switch ($eva_row['star']) {
                 case 1:
                     $star1++;
@@ -118,10 +118,10 @@
         <div class="eva-box">
             <?php
                 $eva_sql = "SELECT evaluate.*, user.* FROM evaluate, user WHERE evaluate.dishid = ".$_GET["id"]." AND evaluate.userid = user.id ORDER BY evaluate.id DESC;";
-                $eva_result = mysql_query($eva_sql);
+                $eva_result = $mysqli->query($eva_sql);
                 $star_arr = array('', '&#xe8f2;&#xe8f4;&#xe8f4;&#xe8f4;&#xe8f4;', '&#xe8f2;&#xe8f2;&#xe8f4;&#xe8f4;&#xe8f4;', '&#xe8f2;&#xe8f2;&#xe8f2;&#xe8f4;&#xe8f4;', '&#xe8f2;&#xe8f2;&#xe8f2;&#xe8f2;&#xe8f4;', '&#xe8f2;&#xe8f2;&#xe8f2;&#xe8f2;&#xe8f2;');
-                while ($eva_row = mysql_fetch_array($eva_result)) {
-                    echo '<dl class="eva-dl"><dt class="eva-dt"><span class="head-image"></span><div class="user-info"><p class="name">'.$eva_row["username"].'</p><p class="info">'.$star_arr[$eva_row["star"]].' '.$eva_row["createtime"].'</p></div></dt><dd class="eva-dd">'.$eva_row["content"].'</dd></dl>';
+                while ($eva_row = $eva_result->fetch_array()) {
+                    echo '<dl class="eva-dl"><dt class="eva-dt"><span class="head-image">&#xe8e7;</span><div class="user-info"><p class="name">'.$eva_row["username"].'</p><p class="info"><span class="user-star">'.$star_arr[$eva_row["star"]].'</span> <span class="time">'.date('Y-m-d', strtotime($eva_row["createtime"])).'</span></p></div></dt><dd class="eva-dd">'.$eva_row["content"].'</dd></dl>';
                 }
             ?>
         </div>
