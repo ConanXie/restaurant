@@ -1,13 +1,13 @@
 <?php
     require('header.php');
     $reco_sql = "SELECT * FROM dish WHERE reco = 1;";
-    $reco_result = mysql_query($reco_sql);
+    $reco_result = $mysqli->query($reco_sql);
 ?>
 <section id="recommend"></section>
 <script>
     var list = [
         <?php
-            while ($reco_row = mysql_fetch_array($reco_result)) {
+            while ($reco_row = $reco_result->fetch_array()) {
                 echo "{content: '<div class=list id=list1><a href=detail.php?id=".$reco_row["id"]."><img src=".$reco_row["image"]."><p class=reco-name>".$reco_row["name"]."</p><p class=reco-price>".$reco_row["price"]."<span class=yuan>元</span></p></a>'},";
             }
         ?>
@@ -39,8 +39,8 @@
     <div id="so-box">
         <?php
             $so_sql = "SELECT * FROM dish WHERE spec = 1 LIMIT 3;";
-            $so_result = mysql_query($so_sql);
-            while ($so_row = mysql_fetch_array($so_result)) {
+            $so_result = $mysqli->query($so_sql);
+            while ($so_row = $so_result->fetch_array()) {
                 echo '<div class="so-dish"><a href="detail.php?id='.$so_row["id"].'"><img src="'.$so_row["image"].'" alt=""><p>'.$so_row["name"].'</p><p><span class="so-price">'.$so_row["price"].'<span class="yuan">元</span> <span class="ori-price">'.$so_row["oriprice"].'元</span></p></a></div>';
             }
         ?>
@@ -53,9 +53,9 @@
             echo '<h2>新品</h2>';
             echo '</div>';
             echo '<div class="page">';
-            $all_sql = "SELECT * FROM dish ORDER BY id DESC LIMIT 4;";
-            $all_result = mysql_query($all_sql);
-            while ($all_row = mysql_fetch_array($all_result)) {
+            $all_sql = "SELECT * FROM dish ORDER BY id DESC LIMIT 6;";
+            $all_result = $mysqli->query($all_sql);
+            while ($all_row = $all_result->fetch_array()) {
                 if ($all_row["spec"]) {
                     $price = '<span><span class="so-price">'.$all_row["price"].'<span class="yuan">元</span> <span class="ori-price">'.$all_row["oriprice"].'元</span></span>';
                 } else {
@@ -68,11 +68,11 @@
             echo '<h2>猜你喜欢</h2>';
             echo '</div>';
             echo '<div class="page">';
-            $data = mysql_fetch_array(mysql_query("SELECT * FROM user WHERE id = ".$_SESSION['USERID'].";"));
+            $data = $mysqli->query("SELECT * FROM user WHERE id = ".$_SESSION['USERID'].";")->fetch_array();
             $data = json_decode($data['reco']);
             for ($i = 0; $i < count($data); $i++) {
                 $sql = "SELECT * FROM dish WHERE id = ".$data[$i].";";
-                $row = mysql_fetch_array(mysql_query($sql));
+                $row = $mysqli->query($sql)->fetch_array();
                 if ($row["spec"]) {
                     $price = '<span><span class="so-price">'.$row["price"].'<span class="yuan">元</span> <span class="ori-price">'.$row["oriprice"].'元</span></span>';
                 } else {
