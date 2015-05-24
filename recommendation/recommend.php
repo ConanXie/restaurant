@@ -2,25 +2,38 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=0.7; user-scalable=0;">
     <title>SVD</title>
     <style>
         * {
             margin: 0;
             padding: 0;
         }
+        body {
+            font-family: "思源黑体 CN Light";
+        }
         table {
             border-collapse: collapse;
+            border: none;
             margin: 1em auto;
+        }
+        .ttitle {
+            background: #00A0FF;
+            color: #fff;
+        }
+        .ttitle td {
+            padding-left: 2px;
         }
         td {
             width: 5em;
+            /*padding: 0 1em;*/
             line-height: 2em;
             text-align: center;
+            border: 1px solid #bdbdbd;
         }
         .index {
             text-align: center;
-            background: #ccc;
+            font-weight: bold;
+            background: #e0e0e0;
         }
         h3 {
             text-align: center;
@@ -33,7 +46,7 @@
     // require('../config.php');
     // $reco = new RECO();
     // for ($i = 0; $i < 5; $i++) {
-        // $reco->recommend(10);
+        // $reco->recommend(8, $mysqli);
     // }
     /**
     * 推荐
@@ -58,9 +71,9 @@
             $U = $op->twoDimen($u, $m, $m);
             $S = $op->twoDimen($dd, $m, $n);
             $V = $op->twoDimen($v, $n, $n);
-            // $this->showTable($U);
-            // $this->showTable($S);
-            // $this->showTable($V);
+            $this->showTable($U, 'U矩阵');
+            $this->showTable($S, 'S矩阵');
+            $this->showTable($V, 'VT矩阵');
             // $this->showTable($op->multiply($U, $op->trans($U)));
             // $this->showTable($op->multiply($op->multiply($U, $S), $V));
             $r = 0; // 统计需要的奇异值个数
@@ -70,17 +83,17 @@
             for ($i = 0; $i < $m_1; $i++) {
                 $a += $S[$i][$i] * $S[$i][$i]; // 记录全部奇异值平方和
             }
-            $b = $a*0.85; // 全部奇异值的平方和的85%
+            $b = $a*0.90; // 全部奇异值的平方和的90%
             $c = 0;
             // print_r($S);
             for ($i = 0; $i < $n_1; $i++) {
-                $c += $S[$i][$i] * $S[$i][$i];
+                $c += pow($S[$i][$i], 2);
                 if ($c >= $b) {
                     $r = $i + 1; // 统计前r个奇异值，反映全部奇异值的平方和的90%以上
                     break;
                 }
             }
-            // echo '<h3>当取总奇异值平方和的'.(0.85*100).'%时，r为'.$r.'</h3>';
+            echo '<h3>当取总奇异值平方和的'.(0.90*100).'%时，r为'.$r.'</h3>';
             $n_U = array();
             for ($i = 0; $i < $m; $i++) {
                 $n_U[$i] = array();
@@ -112,19 +125,19 @@
             // $this->showTable($op->trans($n_V));
             return $op->trans($n_V);
         }
-        public function createData() {
+        public function createData($mysqli) {
             $user = array();
             $dish = array();
             $data = array();
             $dish_sql = "SELECT * FROM dish;";
-            $dish_result = mysql_query($dish_sql);
-            $dish_num = mysql_num_rows($dish_result);
+            $dish_result = $mysqli->query($dish_sql);
+            $dish_num = $dish_result->num_rows;
             $user_sql = "SELECT * FROM user;";
-            $user_result = mysql_query($user_sql);
-            $user_num = mysql_num_rows($user_result);
+            $user_result = $mysqli->query($user_sql);
+            $user_num = $user_result->num_rows;
             $user_sum = 0;
-            while ($user_row = mysql_fetch_array($user_result)) {
-                /*if (!mysql_num_rows(mysql_query("SELECT * FROM evaluate WHERE userid = ".$user_row['id'].";"))) {
+            while ($user_row = $user_result->fetch_array()) {
+                /*if (!mysql_num_rows($mysqli->query("SELECT * FROM evaluate WHERE userid = ".$user_row['id'].";"))) {
                     continue;
                 }*/
                 $data[$user_sum] = array();
@@ -136,17 +149,17 @@
                 }
             }
             $dish_sum = 0;
-            while ($dish_row = mysql_fetch_array($dish_result)) {
+            while ($dish_row = $dish_result->fetch_array()) {
                 $dish[$dish_sum] = $dish_row['id'];
                 $dish_sum++;
             }
             for ($i = 0; $i < $user_sum; $i++) {
                 for ($j = 0; $j < $dish_sum; $j++) {
-                    $star_result = mysql_query("SELECT * FROM evaluate WHERE userid = ".$user[$i]." AND dishid = ".$dish[$j]." ORDER BY createtime DESC;");
-                    if (!mysql_num_rows($star_result)) {
+                    $star_result = $mysqli->query("SELECT * FROM evaluate WHERE userid = ".$user[$i]." AND dishid = ".$dish[$j]." ORDER BY createtime DESC;");
+                    if (!$star_result->num_rows) {
                         $data[$i][$j] = 0;
                     } else {
-                        $star = mysql_fetch_array($star_result);
+                        $star = $star_result->fetch_array();
                         $data[$i][$j] = $star['star'];
                     }
                 }
@@ -157,7 +170,7 @@
         public function showTable($data, $title) {
             $m = count($data);
             $n = count($data[0]);
-            echo '<table border="1"><tr><td colspan="'.($n+1).'">'.$title.'</td></tr><tr class="index">';
+            echo '<table border="1"><tr class="ttitle"><td colspan="'.($n+1).'">'.$title.'</td></tr><tr class="index">';
             for ($i = 0; $i <= $n; $i++) {
                 echo '<td>'.$i.'</td>';
             }
@@ -174,7 +187,8 @@
             echo '</table>';
         }
         public function evaluate($data, $user, $item, $itemTransformed) {
-            $n = count($data);
+            // $this->showTable($data, '$data');
+            $n = count($data[$user]);
             $simTotal = 0;
             $ratSimTotal = 0;
             for ($j = 0; $j < $n; $j++) {
@@ -185,7 +199,7 @@
                 $vectorA = $itemTransformed[$item];
                 $vectorB = $itemTransformed[$j];
                 $similarity = $this->cosSim($vectorA, $vectorB);
-                // echo 'the '.($item+1).' and '.($j+1).' similarity is '.$similarity.'<br>';
+                echo 'the '.($item+1).' and '.($j+1).' similarity is '.$similarity.'<br>';
                 $simTotal += $similarity;
                 $ratSimTotal += $similarity * $userRating;
             }
@@ -211,8 +225,8 @@
             // echo abs($a).', '.$b.'<br>';
             return 0.5 + 0.5*$a/$b;
         }
-        public function recommend($user) {
-            $data = $this->createData();
+        public function recommend($user, $mysqli) {
+            $data = $this->createData($mysqli);
             /*$data = array(
                 array(2,0,0,4,4,0,0,0,0,0,0,4,0,1,4,5),
                 array(0,0,0,0,0,0,0,0,0,0,5,0,2,0,1,0),
@@ -222,8 +236,13 @@
                 array(0,0,0,0,0,0,5,0,0,5,0,0,2,1,4,0),
                 array(4,0,4,0,0,0,0,0,0,0,5,4,0,0,0,5),
                 array(0,0,0,0,0,4,0,0,0,0,4,3,2,1,2,0),
-                array(0,0,0,0,0,0,5,0,0,5,0,1,0,0,1,5),
-                array(0,0,0,3,0,0,0,0,4,5,0,4,2,1,0,2),
+                array(0,0,0,0,0,0,5,0,0,2,0,1,0,0,1,5),
+                array(0,2,0,2,0,0,0,0,4,5,0,4,2,1,0,2),
+                array(0,0,0,3,0,0,3,0,2,0,0,5,0,4,0,5),
+                array(5,0,2,0,0,0,2,0,0,0,0,5,2,0,0,1),
+                array(2,4,0,1,0,1,0,0,1,5,0,2,5,1,0,0),
+                array(0,0,0,3,0,0,0,0,4,0,0,1,1,2,0,1),
+                array(3,0,0,0,0,4,0,0,5,5,0,0,2,1,0,3),
                 array(1,1,2,1,1,2,1,0,4,5,0,0,4,0,3,4)
             );*/
             // $data = array(
@@ -247,10 +266,12 @@
                 echo 'the user has rated all items';
                 return;
             }
+            $this->showTable($unratedItem, '已评分项0，未评分项1');
             $itemScore = $this->createZeros($numOfUnrated, 2);
             $r = 0;
             // fillMatrix($data);
             $itemTransformed = $this->svdResolve($data);
+            $this->showTable($itemTransformed, '降维后的矩阵');
             for ($j = 0; $j < $n; $j++) {
                 if ($unratedItem[0][$j] == 1) {
                     $score = $this->evaluate($data, $user, $j, $itemTransformed);
@@ -259,7 +280,7 @@
                     $r++;
                 }
             }
-            // $this->showTable($itemScore);
+            $this->showTable($itemScore, '预测评分');
             $this->sort($itemScore);
             $this->showTable($op->trans($itemScore), '预测评分');
             return $this->store($itemScore);
