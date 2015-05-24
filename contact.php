@@ -7,10 +7,10 @@
     echo '<link rel="stylesheet" href="css/contact.css">';
     echo '<div class="shade"></div>';
     $cont_sql = "SELECT * FROM contact WHERE userid = ".$_SESSION['USERID'].";";
-    $cont_result = mysql_query($cont_sql);
+    $cont_result = $mysqli->query($cont_sql);
     echo '<ol id="contact-list">';
-    if (mysql_num_rows($cont_result)) {
-        while ($cont_row = mysql_fetch_array($cont_result)) {
+    if ($cont_result->num_rows) {
+        while ($cont_row = $cont_result->fetch_array()) {
             echo '<li>';
             echo '<div class="cont">';
             echo '<p class="li-name" data-value="'.$cont_row['name'].'">联系人：'.$cont_row['name'].'</p>';
@@ -33,7 +33,7 @@
     <label for="address">地址</label>
     <textarea name="address" id="address" cols="30" rows="5"></textarea>
     <p></p>
-    <input type="submit" name="submit" value="提交">
+    <input type="submit" name="submit" value="确定">
 </form>
 <script src="js/contact.js"></script>
 <?php
