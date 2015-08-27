@@ -7,7 +7,7 @@
 ?>
 <link rel="stylesheet" href="css/completed.css">
 <link rel="stylesheet" href="css/evaluate.css">
-<div class="shade"></div>
+<div class="shades"></div>
 <section>
 <?php
     $detail_sql = "SELECT orders.*, dish.*, odetail.* FROM orders, dish, odetail WHERE orders.userid = ".$_SESSION['USERID']." AND odetail.orderid = orders.id AND odetail.dishid = dish.id ORDER BY odetail.id DESC;";
