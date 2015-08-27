@@ -3,7 +3,7 @@ var contact = {
     deleteBtn: document.querySelectorAll('.delete'),
     editBtn: document.querySelectorAll('.edit'),
     addBtn: document.querySelector('#add-cont'),
-    shade: document.querySelector('.shade'),
+    shades: document.querySelector('.shades'),
     form: document.cont,
 
     init: function () {
@@ -39,7 +39,7 @@ var contact = {
             that.form.phone.value = '';
             that.form.address.value = '';
         }, false);
-        this.shade.addEventListener('click', function () {
+        this.shades.addEventListener('click', function () {
             that.hiddenForm();
         }, false);
         this.form.submit.addEventListener('click', function () {
@@ -82,11 +82,11 @@ var contact = {
         xhr.send('way=' + obj.way + '&id=' + obj.id + '&name=' + obj.name + '&phone=' + obj.phone + '&address=' + obj.address);
     },
     hiddenForm: function () {
-        this.shade.style.display = 'none';
+        this.shades.style.display = 'none';
         this.form.style.display = 'none';
     },
     showForm: function () {
-        this.shade.style.display = 'block';
+        this.shades.style.display = 'block';
         this.form.style.display = 'block';
     }
 };
