@@ -1,7 +1,7 @@
-ol {
+#contact-list ol {
     list-style-type: none;
 }
-li {
+#contact-list li {
     background: #fff;
     margin: 0.8em 0.3em;
     padding: 1em;
@@ -11,7 +11,7 @@ li {
 .cont p {
     line-height: 2em;
 }
-.shade {
+.shades {
     position: fixed;
     z-index: 10;
     width: 100%;
@@ -20,6 +20,7 @@ li {
     display: none;
 }
 .delete, .edit {
+    -webkit-appearance: none;
     float: right;
     font-size: 1em;
     margin-top: 1em;
@@ -85,6 +86,7 @@ textarea {
     margin: 1em 0;
 }
 input[type="submit"] {
+    -webkit-appearance: none;
     float: right;
     outline: none;
     font-size: 1.2em;

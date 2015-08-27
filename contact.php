@@ -5,7 +5,7 @@
         exit();
     }
     echo '<link rel="stylesheet" href="css/contact.css">';
-    echo '<div class="shade"></div>';
+    echo '<div class="shades"></div>';
     $cont_sql = "SELECT * FROM contact WHERE userid = ".$_SESSION['USERID'].";";
     $cont_result = $mysqli->query($cont_sql);
     echo '<ol id="contact-list">';
