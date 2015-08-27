@@ -96,21 +96,20 @@ Dish.prototype = {
 };
 window.onload = function () {
     var menuButton = document.querySelector('#menu-button'),
-        shade = document.querySelector('#shade'),
+        shade = document.querySelector('.shade'),
         aside = document.querySelector('aside');
     menuButton.addEventListener('click', function () {
-        shade.style.display = 'block';
+        shade.className = 'shade shadeshow';
         document.documentElement.style.overflowY = 'hidden';
-        aside.style.webkitTransform = 'translateX(0)';
-        aside.style.msTransform = 'translateX(0)';
-        aside.style.transform = 'translateX(0)';
+        aside.className = 'asideshow';
     }, false);
     shade.addEventListener('click', function () {
-        shade.style.display = 'none';
+        shade.className = 'shade shadehide';
+        setTimeout(function () {
+            shade.className = 'shade';
+        }, 500);
         document.documentElement.style.overflowY = 'auto';
-        aside.style.webkitTransform = 'translateX(-110%)';
-        aside.style.msTransform = 'translateX(-110%)';
-        aside.style.transform = 'translateX(-110%)';
+        aside.className = 'asidehide';
     });
 
 };
