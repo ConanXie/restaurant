@@ -7,6 +7,6 @@
     if (mysqli_connect_errno()) {
         echo mysqli_connect_error();
     }
-    // $config_basedir = "http://192.168.1.100:8080/restaurant/";
-    $config_basedir = "http://localhost:8080/restaurant/";
+    // $config_basedir = "http://192.168.1.100/restaurant/";
+    $config_basedir = "http://localhost/restaurant/";
 ?>
