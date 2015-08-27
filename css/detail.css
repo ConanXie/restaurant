@@ -30,6 +30,7 @@ section {
     clear: both;
 }
 .button {
+    -webkit-appearance: none;
     color: #fff;
     background: #dd191d;
     margin-top: 1.5em;
@@ -58,10 +59,12 @@ section {
 }
 #detail-box ul {
     display: flex;
+    display: -webkit-box;
 }
 #detail-box li {
     list-style-type: none;
     flex: 1;
+    -webkit-box-flex: 1;
     text-align: center;
 }
 #show-detail {
@@ -136,12 +139,15 @@ section {
     font-size: 2em;
 }
 .head-image {
-    display: inline-block;
     float: left;
-    width: 2em;
-    height: 2em;
+    width: 1.5em;
+    height: 1.5em;
+    font: normal 1em "icon";
+    line-height: 1.4em;
+    color: #fff;
+    text-align: center;
     margin-right: 0.5em;
-    background: #ddd;
+    background: #ff5722;
     border-radius: 50%;
 }
 .user-info {
@@ -150,11 +156,17 @@ section {
     float: left;
 }
 .name {
-    line-height: 2em;
+    line-height: 1.8em;
+}
+.user-star {
+    color: #ff5722;
+}
+.time {
+    color: #888;
 }
 .info {
     font: normal 1em "icon";
 }
 .eva-dd {
-    margin-left: 5em;
+    margin: 1em 0 1em 0.8em;
 }

@@ -1,8 +1,10 @@
 section {
-    margin: 0.8em 0.3em;
+    margin-bottom: 0.8em;
     padding: 0 3%;
-    border-radius: 2px;
-    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px 1px rgba(50, 50, 50, 0.1);
+}
+section:last-child {
+    margin-bottom: 0;
 }
 .order-head {
     border-bottom: 1px solid #eee;

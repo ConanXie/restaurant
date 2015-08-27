@@ -50,6 +50,7 @@ body {
     height: 2em;
 }
 .edit-btn {
+    -webkit-appearance: none;
     float: right;
     margin-top: 1em;
 }
@@ -62,6 +63,7 @@ body {
     margin-top: 0.8em;
 }
 .subtract-btn, .num-now, .plus-btn {
+    -webkit-appearance: none;
     float: left;
     background: #fff;
     border: none;
@@ -79,6 +81,7 @@ body {
     color: #fff;
 }
 .edit-btn, .delete-btn, .finish-btn {
+    -webkit-appearance: none;
     font-size: 1.1em;
     line-height: 2em;
     font-family: "微软雅黑 Light", 微软雅黑, 黑体;
@@ -130,6 +133,7 @@ footer p {
     color: #f00;
 }
 footer input[type="submit"] {
+    -webkit-appearance: none;
     outline: none;
     border: none;
     float: right;

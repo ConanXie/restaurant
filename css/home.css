@@ -1,10 +1,13 @@
 body {
-    background: #00bcd4;
+    background: #fff;
 }
 #head {
     padding: 3em 0;
-    color: #fff;
+    color: #e51c23;
     text-align: center;
+}
+#head p {
+    color: #343434;
 }
 #master {
     font: normal 5em "icon";
@@ -12,12 +15,38 @@ body {
 .e-mana {
     width: 33.3%;
     float: left;
-    padding: 2em 0;
+    padding: 1.5em 0;
     text-align: center;
-    color: #fff;
+    color: #343434;
 }
 .e-mana a {
     color: #fff;
     text-decoration: none;
-    font: normal 3em "icon";
+    font: normal 2em "icon";
+}
+.icons {
+    width: 3.5em;
+    height: 3.5em;
+    line-height: 4.4em;
+    margin: 0 auto;
+    margin-bottom: 0.8em;
+    border-radius: 50%;
+}
+.cart {
+    background: #ff5722;
+}
+.completed {
+    background: #259b24;
+}
+.evaluate {
+    background: #009688;
+}
+.contact {
+    background: #00bcd4;
+}
+.feedback {
+    background: #9c27b0;
+}
+.logout {
+    background: #e91e63;
 }

@@ -21,7 +21,7 @@ header {
     width: 100%;
     height: 50px;
     background: #e51c23;
-    box-shadow: 0 0 10px rgba(30, 30, 30, 0.6);
+    box-shadow: 0 0 10px 1px rgba(30, 30, 30, 0.5);
     z-index: 98;
     text-align: center;
 }
@@ -52,7 +52,7 @@ header div, #user {
     margin-right: 2%;
     color: #fff;
 }
-#shade {
+.shade {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -61,6 +61,32 @@ header div, #user {
     background: rgba(0, 0, 0, 0.7);
     display: none;
     z-index: 98;
+}
+.shadeshow {
+    display: block;
+    opacity: 0;
+    animation: shadeshow 0.5s forwards;
+}
+@keyframes shadeshow {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;;
+    }
+}
+.shadehide {
+    display: block;
+    opacity: 1;
+    animation: shadehide 0.5s forwards;
+}
+@keyframes shadehide {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 aside {
     position: fixed;
@@ -74,7 +100,36 @@ aside {
     -webkit-transform: translateX(-110%);
     -ms-transform: translateX(-110%);
     transform: translateX(-110%);
-    transition: all 0.5s;
+}
+.asideshow {
+    animation: asideshow 0.5s forwards;
+}
+@keyframes asideshow {
+    0% {
+        -webkit-transform: translateX(-110%);
+        -ms-transform: translateX(-110%);
+        transform: translateX(-110%);
+    }
+    100% {
+        -webkit-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        transform: translateX(0%);
+    }
+}
+.asidehide {
+    animation: asidehide 0.5s forwards;
+}
+@keyframes asidehide {
+    0% {
+        -webkit-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        transform: translateX(0%);
+    }
+    100% {
+        -webkit-transform: translateX(-110%);
+        -ms-transform: translateX(-110%);
+        transform: translateX(-110%);
+    }
 }
 aside h3 {
     height: 150px;
@@ -187,9 +242,11 @@ section {
 }
 #so-box {
     display: flex;
+    display: -webkit-box;
 }
 .so-dish {
     flex: 1;
+    -webkit-box-flex: 1;
     text-align: center;
 }
 .so-dish:nth-child(odd) {
