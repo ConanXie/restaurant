@@ -26,9 +26,9 @@
             }
         ?>
     </header>
-    <div id="shade"></div>
+    <div class="shade"></div>
     <aside>
-        <h3>菜单</h3>
+        <h3>菜系</h3>
         <ul>
             <?php
                 $cate_sql = "SELECT * FROM dishcate;";
