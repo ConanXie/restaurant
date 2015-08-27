@@ -1,5 +1,5 @@
 var evaluate = {
-    shade: document.querySelector('.shade'),
+    shades: document.querySelector('.shades'),
     evaBtn: document.querySelectorAll('.evaluate'),
     form: document.evaluate,
     content: document.evaluate.content,
@@ -15,11 +15,11 @@ var evaluate = {
                 that.dish = this.dataset.dish;
                 that.detail = this.dataset.detail;
                 that.nowEvaBtn = this;
-                that.shade.style.display = 'block';
+                that.shades.style.display = 'block';
                 that.form.style.display = 'block';
             }, false);
         }
-        this.shade.addEventListener('click', function () {
+        this.shades.addEventListener('click', function () {
             that.closeForm();
         });
         var stararr = ['', ['&#xe8f2;', '&#xe8f4;', '&#xe8f4;', '&#xe8f4;', '&#xe8f4;'],['&#xe8f2;', '&#xe8f2;', '&#xe8f4;', '&#xe8f4;', '&#xe8f4;'], ['&#xe8f2;', '&#xe8f2;', '&#xe8f2;', '&#xe8f4;', '&#xe8f4;'], ['&#xe8f2;', '&#xe8f2;', '&#xe8f2;', '&#xe8f2;', '&#xe8f4;'], ['&#xe8f2;', '&#xe8f2;', '&#xe8f2;', '&#xe8f2;', '&#xe8f2;']]
@@ -65,7 +65,7 @@ var evaluate = {
         });
     },
     closeForm: function () {
-        this.shade.style.display = 'none';
+        this.shades.style.display = 'none';
         this.form.style.display = 'none';
         var stararr = ['&#xe8f4;', '&#xe8f4;', '&#xe8f4;', '&#xe8f4;', '&#xe8f4;'];
         for (var i = 0; i < 5; i++) {
